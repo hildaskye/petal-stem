@@ -9,7 +9,7 @@ from queries.plant_detail import (
 router = APIRouter()
 
 
-@router.get("/plant_detail", response_model=Union[Error, List[PlantDetailOut]]) # ("/api/plant/{plant_id}")
+@router.get("/plant_detail", response_model=Union[Error, List[PlantDetailOut]])
 def get_plant_detail(
     repo: PlantDetailRepository = Depends()
 ):
