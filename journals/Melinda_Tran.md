@@ -28,3 +28,6 @@ Worked collaboratively on the plant detail page endpoint using the VSCode Live S
 Referencing the videos from explorations/Learn on FastAPI for the endpoint
 
 ## 07/13/23
+
+Finished up the edit pest endpoint. Ran into a error ' pydantic.error_wrappers.ValidationError: <unprintable ValidationError object> '
+and resolved it by deleting the List in the response_model in the @router.put statement. Discussed with group the pace we need to move along in the project.
