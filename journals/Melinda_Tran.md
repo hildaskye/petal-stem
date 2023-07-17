@@ -29,5 +29,9 @@ Referencing the videos from explorations/Learn on FastAPI for the endpoint
 
 ## 07/13/23
 
-Finished up the edit pest endpoint. Ran into a error ' pydantic.error_wrappers.ValidationError: <unprintable ValidationError object> '
+Finished up the edit pest endpoint. Ran into a error ' pydantic.error_wrappers.ValidationError: < unprintable ValidationError object> '
 and resolved it by deleting the List in the response_model in the @router.put statement. Discussed with group the pace we need to move along in the project.
+
+## 07/14/23
+
+Group looked over Cindy's endpoint because she was getting a 500 error, had Liz come in to take a look. Not really sure how exactly it was fixed. Wanted to take another look to make sure all records were showing, currently only the first record was showing.
