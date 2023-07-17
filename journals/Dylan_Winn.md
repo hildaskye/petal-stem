@@ -1,3 +1,9 @@
+## 7/15
+Got Search API working: results show instances of search term in most common search places
+
+## 7/14
+Worked on Search function; got working database instructions in Beekeeper, still need to add to API functions
+
 ## 7/13
 Got Community Page Endpoint (A "get all" function) working!
 
