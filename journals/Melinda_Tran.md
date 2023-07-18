@@ -35,3 +35,9 @@ and resolved it by deleting the List in the response_model in the @router.put st
 ## 07/14/23
 
 Group looked over Cindy's endpoint because she was getting a 500 error, had Liz come in to take a look. Not really sure how exactly it was fixed. Wanted to take another look to make sure all records were showing, currently only the first record was showing.
+
+## 07/17/23
+
+I had two commits that were not pushed up, and when I tried pushing all my commits up today, the merge was blocked. Tried fixing this by pulling main but somehow ended up with divergent branches. I believe I resolved it in the vscode merge conflict resolver, which merged the branch automatically after and the merge request was resolved (however, did not need approval).
+
+Finished my edit species endpoint
