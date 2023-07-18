@@ -8,9 +8,10 @@ from queries.plant_detail import (
 
 router = APIRouter()
 
-
-@router.get("/plant_detail", response_model=Union[Error, List[PlantDetailOut]])
+@router.get("/api/garden/{user_id}/plant/{plant_id}", response_model=Union[List[PlantDetailOut], Error])
 def get_plant_detail(
+    user_id: int,
+    plant_id: int,
     repo: PlantDetailRepository = Depends()
 ):
-    return repo.get_plant_detail()
+    return repo.get_plant_detail(user_id, plant_id)
