@@ -6,6 +6,7 @@ from routers import (
     plant_edit,
     search,
     edit_pest,
+    add_species,
     edit_species,
 )
 from fastapi.middleware.cors import CORSMiddleware
@@ -18,6 +19,7 @@ app.include_router(plant_detail.router)
 app.include_router(community_page.router)
 app.include_router(plant_edit.router)
 app.include_router(edit_pest.router)
+app.include_router(add_species.router)
 app.include_router(edit_species.router)
 
 app.add_middleware(

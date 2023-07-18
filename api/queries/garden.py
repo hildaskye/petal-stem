@@ -51,4 +51,4 @@ class GardenRepository:
                     return result
         except Exception as e:
             print("error: ", e)
-            return Error(message="Could not get plant details for the user")
+            return Error(message="Cannot bring up user's garden")
