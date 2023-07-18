@@ -1,5 +1,8 @@
-## 7/15
-Got Search API working: results show instances of search term in most common search places
+## 7/18
+Got first barebones React pages, including working navigation links and also redid package.json and package-lock.json to be most recent stuff. Have working Navbar which can link between Home and one other test page.
+
+## 7/17
+Got Search API working: results show instances of search term in most common search places and the table they came from
 
 ## 7/14
 Worked on Search function; got working database instructions in Beekeeper, still need to add to API functions
