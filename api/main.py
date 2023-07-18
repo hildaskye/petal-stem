@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from routers import (
+    add_plant,
     garden,
     plant_detail,
     community_page,
@@ -14,6 +15,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 
 app = FastAPI()
+app.include_router(add_plant.router)
 app.include_router(garden.router)
 app.include_router(search.router)
 app.include_router(plant_detail.router)
