@@ -20,19 +20,22 @@ class PlantDetailOut(BaseModel):
     log: str
     user_id: int
     species_id: int
+    picture: str
 
 
 class PlantDetailRepository:
-    def get_plant_detail(self) -> Union[Error, List[PlantDetailOut]]:
+    def get_plant_detail(self, user_id: int, plant_id: int) -> Union[List[PlantDetailOut], Error]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
-                    result = db.execute(
+                    db.execute(
                         """
-                        SELECT id, nickname, log, user_id, species_id
-                        FROM personal_plant
-
-                        """
+                        SELECT plant.id, plant.nickname, plant.log, plant.user_id, plant.species_id, species.picture
+                        FROM personal_plant AS plant
+                        JOIN species ON plant.species_id = species.id
+                        WHERE plant.user_id = %s AND plant.id = %s
+                        """,
+                        [user_id, plant_id]
                     )
                     result = []
                     for record in db:
@@ -42,9 +45,10 @@ class PlantDetailRepository:
                             log=record[2],
                             user_id=record[3],
                             species_id=record[4],
+                            picture=record[5],
                         )
                         result.append(plant_detail)
                     return result
         except Exception as e:
-            print("errroooorrrrr", e)
-            return {"message": "Could not get all plant details"}
+            print("error: ", e)
+            return Error(message="Could not get plant details for the user")

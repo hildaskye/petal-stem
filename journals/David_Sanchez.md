@@ -4,9 +4,17 @@ Work with team on getting our tables correct and working in beekeeper as well as
 # 7/11
 Worked on creating endpoints with my team, and watching videos on how to create them. Tomorrow we will work on backend auth.
 
-
 # 7/12
 Created my first endpoint and it was a GET Request for the personal plant detail page. It was a tricky fellow but worked out the kinks and got it to work.
 
 # 7/13
 Was able to finish and get my "PUT" plant_edit endpoint to work and fully intergrate into the project
+
+# 7/14
+Worked on my endpoints and helped my partners as well. I helped out Cindy with her endpoint. And finished up another one of mine.
+
+# 7/17
+Group finished up more endpoints and we are helping each other. We ran into a few problems but managed to get them done.
+
+# 7/18
+Finished all my endpoints FINALLY! With the help of melinda and liz but moving to backend with Melinda.
