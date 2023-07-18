@@ -10,7 +10,7 @@ from queries.add_plant import (
 router = APIRouter()
 
 @router.post("/api/garden/{user_id}/plant", response_model=Union[PlantOut, Error])
-def add_species(
+def add_plant(
     plant: PlantIn,
     repo: PlantRepository = Depends()
 ):
