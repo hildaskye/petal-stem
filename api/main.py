@@ -8,6 +8,7 @@ from routers import (
     edit_pest,
     add_species,
     edit_species,
+    delete_species,
 )
 from fastapi.middleware.cors import CORSMiddleware
 import os
@@ -21,6 +22,7 @@ app.include_router(plant_edit.router)
 app.include_router(edit_pest.router)
 app.include_router(add_species.router)
 app.include_router(edit_species.router)
+app.include_router(delete_species.router)
 
 app.add_middleware(
     CORSMiddleware,

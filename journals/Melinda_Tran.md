@@ -40,4 +40,6 @@ Group looked over Cindy's endpoint because she was getting a 500 error, had Liz 
 
 I had two commits that were not pushed up, and when I tried pushing all my commits up today, the merge was blocked. Tried fixing this by pulling main but somehow ended up with divergent branches. I believe I resolved it in the vscode merge conflict resolver, which merged the branch automatically after and the merge request was resolved (however, did not need approval).
 
-Finished my edit species endpoint
+Finished two endpoints: edit species and delete species
+
+Noticed main.py is getting long with all the routers, should we condense code and put some of these together?
