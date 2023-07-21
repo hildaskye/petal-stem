@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from authenticator import authenticator
+from fastapi.middleware.cors import CORSMiddleware
 from routers import (
     add_plant,
     garden,
@@ -11,13 +13,15 @@ from routers import (
     edit_species,
     delete_species,
     plant_delete,
+    accounts,
     pest_list,
-    pest_add
+    pest_add,
 )
-from fastapi.middleware.cors import CORSMiddleware
 import os
 
 app = FastAPI()
+app.include_router(authenticator.router)
+app.include_router(accounts.router)
 app.include_router(add_plant.router)
 app.include_router(garden.router)
 app.include_router(search.router)

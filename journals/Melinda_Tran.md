@@ -43,3 +43,30 @@ I had two commits that were not pushed up, and when I tried pushing all my commi
 Finished two endpoints: edit species and delete species
 
 Noticed main.py is getting long with all the routers, should we condense code and put some of these together?
+
+## 07/18/23
+
+David's docker container was not showing logs, so Liz and Rosheen came by to debug that, eventually they got it working (don't know the fix since they moved to different room).
+Went over how to create endpoints with teammate.
+Accidentaly wrote in journal on main but did not commit, stackoverflow shows that since it was not committed i can just git checkout to my dev branch. Checked git log and git status, looks okay.
+
+Starting backend-auth (rewatching vid)
+requirements.txt -> fastapi ... 0.81.0, jwtdown...>=0.2.0
+docker-compose -> fastapi envir
+signingkey = 328c45625f7de7dab454a47c364f1e2d804353039e2c506dd630967891e47452
+(key generated from openssl rand ...)
+do we need the wait host??
+
+Potential blocker: fastapi page (localhost:8000/doc) not working - getting keyerror: signingkey (had it in dockercompose.yml, took it out, had it in authenticator.py and commented it out, still getting error)
+
+## 07/19/23
+
+David and I went over backend auth, got the fastapi working again with Liz's help. The yaml file needed postgres:5432 in the hosts section. Tried to put the POST req in to create an account, got a 500 error (hashed_password not in relation to users db), so thinking of changing hashed_password to password like in our db. Going to go over the auth videos to see what's going on.
+
+## 07/20/23
+
+Finished backend auth and worked on frontend auth. For the backend, we kept getting a 404 error - we were able to create an account just fine (showed up in fastapi and beekeeper) but during that process it's supposed to log you in with those credentials and that was not working. Liz and Caleb came by yesterday for an hour and half to try to figure this out, but we still couldn't get it. Zach came in today and we got it figured out - had to have the get_all function actually implemented, we put a pass there at the time while we were testing things out.
+
+## 07/21/23
+
+Came in on a Saturday to work on front end auth
