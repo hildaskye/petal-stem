@@ -1,9 +1,10 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 // import Construct from "./Construct.js";
-import Test from "./test.js"
+import Test from "./test.js";
 import ErrorNotification from "./ErrorNotification.js";
 import "./App.css";
+import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
 
 import Navbar from "./Navbar.js";
 import MainPage from "./MainPage.js";
@@ -21,42 +22,45 @@ import PlantDetail from "./User/PlantDetail.js";
 import PlantForm from "./User/PlantForm.js";
 
 function App() {
-//   // (Commented out code is old code for launch page, currently left for reference.
-//   // Be sure to delete before project is finished)
+  // const domain = /https:\/\/[^/]+/;
+  // const basename = process.env.PUBLIC_URL.replace(domain, "");
 
-//   const [launchInfo, setLaunchInfo] = useState([]);
-//   const [error, setError] = useState(null);
+  //   // (Commented out code is old code for launch page, currently left for reference.
+  //   // Be sure to delete before project is finished)
 
-//   useEffect(() => {
-//     async function getData() {
-//       let url = `${process.env.REACT_APP_API_HOST}/api/launch-details`;
-//       console.log("fastapi url: ", url);
-//       let response = await fetch(url);
-//       console.log("------- hello? -------");
-//       let data = await response.json();
+  //   const [launchInfo, setLaunchInfo] = useState([]);
+  //   const [error, setError] = useState(null);
 
-//       if (response.ok) {
-//         console.log("got launch data!");
-//         setLaunchInfo(data.launch_details);
-//       } else {
-//         console.log("drat! something happened");
-//         setError(data.message);
-//       }
-//     }
-//     getData();
-//   }, []);
-//   return (
-//     <div>
-//       <ErrorNotification error={error} />
-//       <Construct info={launchInfo} />
-//     </div>
-//   );
-// }
+  //   useEffect(() => {
+  //     async function getData() {
+  //       let url = `${process.env.REACT_APP_API_HOST}/api/launch-details`;
+  //       console.log("fastapi url: ", url);
+  //       let response = await fetch(url);
+  //       console.log("------- hello? -------");
+  //       let data = await response.json();
 
-// export default App;
+  //       if (response.ok) {
+  //         console.log("got launch data!");
+  //         setLaunchInfo(data.launch_details);
+  //       } else {
+  //         console.log("drat! something happened");
+  //         setError(data.message);
+  //       }
+  //     }
+  //     getData();
+  //   }, []);
+  //   return (
+  //     <div>
+  //       <ErrorNotification error={error} />
+  //       <Construct info={launchInfo} />
+  //     </div>
+  //   );
+  // }
+
+  // export default App;
 
   return (
-    <>
+    <AuthProvider baseUrl={process.env.REACT_APP_API_HOST}>
       <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -99,10 +103,8 @@ function App() {
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"
       ></script>
-    </>
+    </AuthProvider>
   );
-
-
 }
 
 export default App;

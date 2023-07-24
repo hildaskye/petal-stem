@@ -46,17 +46,17 @@ class AccountToken(Token):
 #     return True
 
 
-# @router.get("/token", response_model=AccountToken | None)
-# async def get_token(
-#     request: Request,
-#     account: AccountOut = Depends(authenticator.try_get_current_account_data),
-# ) -> AccountToken | None:
-#     if authenticator.cookie_name in request.cookies:
-#         return {
-#             "access_token": request.cookies[authenticator.cookie_name],
-#             "type": "Bearer",
-#             "account": account,
-#         }
+@router.get("/token", response_model=AccountToken | None)
+async def get_token(
+    request: Request,
+    account: AccountOut = Depends(authenticator.try_get_current_account_data),
+) -> AccountToken | None:
+    if authenticator.cookie_name in request.cookies:
+        return {
+            "access_token": request.cookies[authenticator.cookie_name],
+            "type": "Bearer",
+            "account": account,
+        }
 
 
 @router.post("/api/accounts", response_model=AccountToken | HttpError)
@@ -67,7 +67,6 @@ async def create_account(
     accounts: AccountRepository = Depends(),
 ):
     hashed_password = authenticator.hash_password(info.password)
-    print("hashed_password from ROUTER:", hashed_password)
     try:
         account = accounts.create(info, hashed_password)
     except DuplicateAccountError:
@@ -75,7 +74,7 @@ async def create_account(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Cannot create an account with those credentials",
         )
-    form = AccountForm(email=info.email, password=info.password)
+    form = AccountForm(username=info.email, password=info.password)
     token = await authenticator.login(response, request, form, accounts)
     return AccountToken(account=account, **token.dict())
 
@@ -103,7 +102,6 @@ async def delete(
 #     response: Response,
 #     repo: AccountRepository = Depends(),
 # ):
-#     # Update the account with the new information
 #     original_password = info.password
 #     hashed_password = authenticator.hash_password(info.password)
 #     info.password = hashed_password
@@ -113,12 +111,8 @@ async def delete(
 #             status_code=status.HTTP_404_NOT_FOUND,
 #             detail="Account not found or update failed",
 #         )
-#     print("updated_account from ROUTER:", updated_account)
-#     # Create a new token for the updated account
 #     form = AccountForm(
 #         username=updated_account.email, password=original_password
 #     )
 #     token = await authenticator.login(response, request, form, repo)
-
-#     # Return the updated account and token
 #     return AccountToken(account=updated_account, **token.dict())

@@ -18,3 +18,9 @@ Group finished up more endpoints and we are helping each other. We ran into a fe
 
 # 7/18
 Finished all my endpoints FINALLY! With the help of melinda and liz but moving to backend with Melinda.
+
+# 7/19
+Melinda and I worked on backend auth, we watched the video together and went over the code numerous times. However, after getting stuck we had caleb and liz help us and it the code still didn't work. So now just need some instructor help.
+
+# 7/20
+Working with Melinda and teachers to finish backend auth and get it working properly. Going to start working on front end auth with Melinda as soon as we get backend finished. 

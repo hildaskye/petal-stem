@@ -57,9 +57,7 @@ class AccountRepository:
                         """,
                         [email],
                     )
-                    print("EMAIL", email)
                     record = result.fetchone()
-                    print("RECORD HERE", record)
                     if record is None:
                         return None
                     return self.record_to_account(record)
@@ -179,7 +177,7 @@ class AccountRepository:
     #     #                         id,
     #     #                     ]
     #     #                 )
-    #     #                 result = db.fetchone()  #  ?????
+    #     #                 result = db.fetchone()
     #     #                 return self.record_to_account(result)
     #     #                 #     AccountOut(
     #     #                 #     id=id,
