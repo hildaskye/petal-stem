@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 
 export default function PlantForm() {
     const [plants, setPlants] = useState([]);
-    const [plant, setPlant] = useState('');
+    const [species, setSpecies] = useState('');
+    const [plantNickname, setPlantNickname] = useState("");
     const [plantLog, setPlantLog] = useState('');
 
 
@@ -10,7 +11,7 @@ export default function PlantForm() {
         const fetchData = async () => {
             const response = await fetch("${process.env.REACT_APP_API_HOST}/api/species");
             const data = await response.json();
-            setPlants(data.plants);
+            setSpecies(data.species);
         };
 
     fetchData();
@@ -19,11 +20,12 @@ export default function PlantForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = {
-            plant,
+            species,
+            plantNickname,
             plantLog
         };
 
-    const plantUrl = "${process.env.REACT_APP_API_HOST}/api/garden/";
+    const gardenUrl = "${process.env.REACT_APP_API_HOST}/api/garden";
         const fetchConfig = {
             method: "post",
             body: JSON.stringify(data),
@@ -31,19 +33,23 @@ export default function PlantForm() {
             "Content-Type": "application/json",
             },
         };
-    const response = await fetch(plantUrl, fetchConfig);
+    const response = await fetch(gardenUrl, fetchConfig);
 
     if (response.ok) {
-        setPlant('');
+        setSpecies('');
+        setPlantNickname('');
         setPlantLog('');
     }
     };
 
-
-    const handlePlantChange = (e) => {
-        const value = e.target.value;
-        setPlant(value);
-    }
+    const handleSpeciesChange = (e) => {
+      const value = e.target.value;
+      setSpecies(value);
+    };
+    const handlePlantNicknameChange = (e) => {
+      const value = e.target.value;
+      setPlantNickname(value);
+    };
     const handlePlantLogChange = (e) => {
         const value = e.target.value;
         setPlantLog(value);
@@ -56,35 +62,37 @@ export default function PlantForm() {
         <h1>Add a plant!</h1>
         <form onSubmit={handleSubmit} id="add-plant-form">
 
-          Type of plant (dropdown here)
-
-          {/* <div className="form-floating mb-3">
-            <select required onChange={handlePlantChange} name="plant" id="plant" className="form-select" value={plant} >
-                <option value="">Type of plant</option>
-                {plants.map(plant => {
-                    return (
-                      <option key={plant.id} value={plant.id}>
-                        {plant.name}
-                      </option>
-                    );
-                    })}
+          <div className="form-select form-select-sm">
+            <select
+              required
+              onChange={handleSpeciesChange}
+              name="species"
+              id="species"
+              className="form-select"
+              value={species}
+            >
+              <option value="">Type of plant</option>
+              {/* {species.map((species) => {
+                return (
+                  <option key={species.id} value={species.id}>
+                    {species.name}
+                  </option> */}
+                );
+              })}
             </select>
-          </div> */}
-
+          </div>
           <div>Plant not listed? Click here!</div>
-
           <div className="form-floating mb-3">
             <input
-              onChange={handlePlantChange}
-              value={plant}
+              onChange={handlePlantNicknameChange}
+              value={plantNickname}
               placeholder="What do you want to call this plant?"
               required
               type="text"
-              id="plant"
+              id="plantNickname"
               className="form-control"
             />
           </div>
-
           <div className="mb-3">
             <label htmlFor="plantLog">Description</label>
             <textarea
@@ -96,7 +104,6 @@ export default function PlantForm() {
               className="form-control"
             ></textarea>
           </div>
-
           <button className="btn btn-primary">Create!</button>
         </form>
       </div>
