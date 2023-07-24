@@ -1,3 +1,12 @@
+## 7/24
+
+
+## 7/20
+Got working react list pages for both Search and Community Pages
+
+## 7/19
+Admittedly, bad mental health day. Accomplished basically nothing
+
 ## 7/18
 Got first barebones React pages, including working navigation links and also redid package.json and package-lock.json to be most recent stuff. Have working Navbar which can link between Home and one other test page.
 

@@ -1,53 +1,55 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 function GardenList() {
-  console.log("Hello!");
   const [gardens, setGardens] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
       const gardenUrl = `${process.env.REACT_APP_API_HOST}/api/garden`;
-      try {
-        const response = await fetch(gardenUrl);
-        if (!response.ok) {
-          throw new Error("API call failed.");
-        }
+      const response = await fetch(gardenUrl);
+      if (response.ok) {
         const data = await response.json();
-        console.log("data.gardens=", data.gardens);
-        setGardens(data.gardens);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+        setGardens(data);
       }
     };
     getData();
   }, []);
 
+  const groupByUploaderName = {};
+
+  gardens.forEach((garden) => {
+    const uploaderName = garden.uploader_name;
+    if (!groupByUploaderName[uploaderName]) {
+      groupByUploaderName[uploaderName] = [];
+    }
+    groupByUploaderName[uploaderName].push(garden);
+  });
+
   return (
     <div>
       <h1>Community Page</h1>
-      {gardens && gardens.length > 0 ? (
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th>Username</th>
-              <th>Plant Uploader Name</th>
-              <th>Plant Nickname</th>
-              <th>Species Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            {gardens.map((garden, index) => {
-              return (
-                <tr key={index}>
-                  <td>{garden.username}</td>
-                  <td>{garden.uploader_name}</td>
-                  <td>{garden.plant_nickname}</td>
-                  <td>{garden.species_name}</td>
+      {Object.keys(groupByUploaderName).length > 0 ? (
+        Object.entries(groupByUploaderName).map(([uploaderName, userGardens]) => (
+          <div key={uploaderName}>
+            <h2>{uploaderName}'s Plants</h2>
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <th>Plant Nickname</th>
+                  <th>Species Name</th>
                 </tr>
-              );
-            })}
-          </tbody>
-        </table>
+              </thead>
+              <tbody>
+                {userGardens.map((garden) => (
+                  <tr key={garden.id}>
+                    <td>{garden.plant_nickname}</td>
+                    <td>{garden.species_name}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ))
       ) : (
         <p>No results found.</p>
       )}
