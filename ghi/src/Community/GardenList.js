@@ -1,12 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import useToken from '@galvanize-inc/jwtdown-for-react';
 
 function GardenList() {
   const [gardens, setGardens] = useState([]);
+  const { token } = useToken();
 
   useEffect(() => {
     const getData = async () => {
       const gardenUrl = `${process.env.REACT_APP_API_HOST}/api/garden`;
-      const response = await fetch(gardenUrl);
+      const fetchConfig = {
+            method: "get",
+            headers: {
+                'Content-Type': 'application/json',
+                 Authorization: `Bearer ${token}`,
+            },
+        };
+      const response = await fetch(gardenUrl, fetchConfig);
       if (response.ok) {
         const data = await response.json();
         setGardens(data);

@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends
 from typing import Union
+from authenticator import authenticator
 from queries.edit_species import (
     Error,
     SpeciesEditIn,
@@ -17,5 +18,6 @@ def edit_species(
     species_id: int,
     species: SpeciesEditIn,
     repo: SpeciesRepository = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
 ) -> Union[SpeciesEditOut, Error]:
     return repo.update(species_id, species)
