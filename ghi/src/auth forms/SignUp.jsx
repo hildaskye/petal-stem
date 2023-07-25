@@ -9,7 +9,7 @@ const SignupForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { register } = useToken();
-  //   const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleRegistration = (e) => {
     e.preventDefault();

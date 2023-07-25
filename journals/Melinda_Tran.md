@@ -69,4 +69,16 @@ Finished backend auth and worked on frontend auth. For the backend, we kept gett
 
 ## 07/21/23
 
-Came in on a Saturday to work on front end auth
+Came in on a Saturday to work on front end auth. Got signup form working, login form partially working. Able to confirm signup was working on fastapi and on beekeeper, could not confirm login.
+At Caleb's suggestion, we copied over the index.tsx from galvanize's jwtdown-for-react and changed the register component to email instead of username. We added this new file and then imported it, and had to change our other imports to reflect this change.
+
+## 07/24/23
+
+Practice assessment in the morning so that cut out a huge chunk of time. Had some errors in the console (syntax, uncaught promise, 401, etc) so recopied over the index.tsx and changed only the register function (had other lines in there before from troubleshooting). Errors went away, functionality still okay. David having an environment issue, code same as everyone but not working on his computer.
+For login - shows as username but must enter in email to login.
+Dylan said she will add in the logout button, and the sign in button.
+
+## 07/25/23
+
+Starting deployment: rewatch CICD lecture with the notes.
+Installed cirrus
