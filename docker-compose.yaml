@@ -28,12 +28,13 @@ services:
       - ./api:/app
   ghi:
     image: node:lts-bullseye
-    command: /bin/bash run.sh
+    command: /bin/bash -c "npm install && npm start"
     working_dir: /app
     volumes:
       - ./ghi:/app
     ports:
       - "3000:3000"
+    stdin_open: true
     environment:
       HOST_OS: ${OS}
       NODE_ENV: development

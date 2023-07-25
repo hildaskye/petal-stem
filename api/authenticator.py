@@ -36,4 +36,5 @@ class MyAuthenticator(Authenticator):
         return account.username, AccountOut(**account.dict())
 
 
-authenticator = MyAuthenticator(os.environ["SIGNING_KEY"])
+# authenticator = MyAuthenticator(os.environ["SIGNING_KEY"])
+authenticator = MyAuthenticator("")
