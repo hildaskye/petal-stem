@@ -1,5 +1,4 @@
 from pydantic import BaseModel
-from typing import List, Union
 from queries.pool import pool
 
 
@@ -38,10 +37,13 @@ class PlantRepository:
                             plant.nickname,
                             plant.log,
                             plant.user_id,
-                            plant.species_id
-                        ]
+                            plant.species_id,
+                        ],
                     )
-                    db.execute("SELECT id FROM personal_plant WHERE nickname = %s", [plant.nickname])
+                    db.execute(
+                        "SELECT id FROM personal_plant WHERE nickname = %s",
+                        [plant.nickname],
+                    )
                     id = db.fetchone()[0]
                     old_data = plant.dict()
                     return PlantOut(id=id, **old_data)

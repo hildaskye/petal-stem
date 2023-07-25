@@ -3,7 +3,6 @@ from typing import List, Union
 from authenticator import authenticator
 from queries.pest_list import (
     Error,
-    PestListIn,
     PestListOut,
     PestRepository,
 )

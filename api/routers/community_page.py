@@ -2,12 +2,9 @@ from fastapi import (
     APIRouter,
     Depends,
     Response,
-    HTTPException,
-    status,
-    Request,
 )
 from authenticator import authenticator
-from typing import Union, List, Optional
+from typing import Union, List
 from queries.community_page import UserGardens, Error, GardenOut
 
 PROJECT_ID = "bababoo"
@@ -23,5 +20,5 @@ def get_all(
 ):
     message = repo.get_all()
     if message == {"message": "Could not get Gardens"}:
-        response.status_code = 404
+        Response.status_code = 404
     return message

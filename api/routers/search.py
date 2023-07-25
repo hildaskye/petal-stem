@@ -1,17 +1,12 @@
-from fastapi import (
-    APIRouter,
-    Depends,
-    Response,
-    HTTPException,
-    status,
-    Request,
-)
-from typing import Union, List, Optional
+from fastapi import APIRouter, Depends, Response
+from typing import Union, List
 from queries.search import SearchClass, Error, SearchOut
 from authenticator import authenticator
 
+
 PROJECT_ID = "bababoo"
 PRIVATE_KEY = "wheeeeeeeeee"
+
 
 router = APIRouter()
 
@@ -24,5 +19,5 @@ def search(
 ):
     message = repo.search(term)
     if message == {"message": "Could not get search results"}:
-        response.status_code = 404
+        Response.status_code = 404
     return message

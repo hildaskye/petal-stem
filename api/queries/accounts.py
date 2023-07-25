@@ -1,13 +1,9 @@
+from pydantic import BaseModel
 import os
 from psycopg_pool import ConnectionPool
+from typing import Union
 
 pool = ConnectionPool(conninfo=os.environ.get("DATABASE_URL"))
-
-from pydantic import BaseModel
-
-from typing import List, Union
-
-# from queries.pool import pool
 
 
 class Error(BaseModel):
@@ -30,10 +26,6 @@ class AccountOut(BaseModel):
     fullname: str
     username: str
     email: str
-
-
-# # class AccountUpdate(BaseModel):
-# #     pass
 
 
 class AccountOutWithPassword(AccountOut):
@@ -150,42 +142,3 @@ class AccountRepository:
     def account_in_to_out(self, id: int, account: AccountIn):
         old_data = account.dict()
         return AccountOut(id=id, **old_data)
-
-    #     # def update_acct(
-    #     #     self,
-    #     #     id: int,
-    #     #     hashed_password: str,
-    #     #     accounts: AccountIn
-    #     # ) -> Union[AccountOut, Error]:
-    #     #     try:
-    #     #         with pool.connection() as conn:
-    #     #             with conn.cursor() as db:
-    #     #                 db.execute(
-    #     #                     """
-    #     #                     UPDATE users
-    #     #                     SET fullname = %s
-    #     #                         , username = %s
-    #     #                         , email = %s
-    #     #                         , password = %s
-    #     #                     WHERE id = %s
-    #     #                     """,
-    #     #                     [
-    #     #                         accounts.fullname,
-    #     #                         accounts.username,
-    #     #                         accounts.email,
-    #     #                         hashed_password,
-    #     #                         id,
-    #     #                     ]
-    #     #                 )
-    #     #                 result = db.fetchone()
-    #     #                 return self.record_to_account(result)
-    #     #                 #     AccountOut(
-    #     #                 #     id=id,
-    #     #                 #     fullname=accounts.first_name,
-    #     #                 #     username=accounts.username,
-    #     #                 #     email=accounts.email,
-    #     #                 #     hashed_password=hashed_password
-    #     #                 # )
-    #     #     except Exception as e:
-    #     #         print(e)
-    #     #         return {"Could not update account": e}

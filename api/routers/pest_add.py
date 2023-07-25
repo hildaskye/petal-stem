@@ -1,7 +1,8 @@
 from fastapi import APIRouter, Depends
-from typing import Union, List
+from typing import Union
 from authenticator import authenticator
 from queries.pest_add import Error, PestAddIn, PestAddOut, PestRepository
+
 
 router = APIRouter()
 
