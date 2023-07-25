@@ -2,7 +2,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import ErrorNotification from "./ErrorNotification.js";
 import "./App.css";
-import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
+import { AuthProvider } from "./auth forms/newindex.tsx";
 
 import Navbar from "./Navbar.js";
 import MainPage from "./MainPage.js";
@@ -14,7 +14,7 @@ import PestDetail from "./Community/PestDetail.js";
 import PestForm from "./Community/PestForm.js";
 import PestList from "./Community/PestList.js";
 import PlantSpeciesForm from "./Community/PlantSpeciesForm.js";
-import SearchList from "./Search.js"
+import SearchList from "./Search.js";
 // user logged in
 import Dashboard from "./User/Dashboard.js";
 import PlantDetail from "./User/PlantDetail.js";
@@ -27,7 +27,8 @@ function App() {
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous" />
+        crossOrigin="anonymous"
+      />
       <Navbar />
       <div className="container">
         <Routes>
@@ -51,15 +52,17 @@ function App() {
       <script
         src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous" />
+        crossOrigin="anonymous"
+      />
       <script
         src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous" />
+        crossOrigin="anonymous"
+      />
       <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"
+        crossOrigin="anonymous"
       ></script>
     </AuthProvider>
   );

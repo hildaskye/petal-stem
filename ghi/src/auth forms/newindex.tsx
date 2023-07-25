@@ -8,8 +8,6 @@ import React, {
   useState,
 } from "react";
 
-const { REACT_APP_API_HOST } = process.env;
-
 interface LoginInterface {
   username: string;
   password: string;
@@ -51,8 +49,7 @@ export type AuthContextType = {
 export const AuthContext = createContext<AuthContextType>({
   token: null,
   setToken: () => null,
-  // baseUrl: "",
-  baseUrl: REACT_APP_API_HOST,
+  baseUrl: "",
 });
 
 /**
@@ -71,7 +68,7 @@ interface AuthProviderProps {
  * @public
  */
 export const AuthProvider = (props: AuthProviderProps) => {
-  const [token, setToken] = (useState < string) | (null > null);
+  const [token, setToken] = useState<string | null>(null);
   const { children, baseUrl } = props;
 
   return (
@@ -170,7 +167,6 @@ const useToken = () => {
       },
     })
       .then(() => login(userData.email, userData.password))
-      // .then(() => login(userData.username, userData.password))
       .catch(console.error);
   };
 

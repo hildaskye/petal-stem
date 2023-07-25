@@ -1,12 +1,13 @@
-import useToken from "@galvanize-inc/jwtdown-for-react";
+import useToken from "./newindex.tsx";
 import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { login } = useToken();
+  const { token, login } = useToken();
   // const navigate = useNavigate();
+  // const { token } =
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +17,7 @@ const LoginForm = () => {
     // navigate("/pest");
   };
 
-  // console.log("working token??", token);
+  console.log("working token??", token);
 
   return (
     <div className="card text-bg-light mb-3">
