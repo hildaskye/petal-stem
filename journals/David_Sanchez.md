@@ -36,4 +36,12 @@ Working with Melinda and teachers to finish backend auth and get it working prop
 
 # 7/21
 
-Worked with Melinda and Cindy on friday when school
+Worked with Melinda and Cindy on friday when there was no school. Melinda and I finished front end auth sign up part.
+
+# 7/24
+
+Melinda and I completely finished front end auth. Had some errors but figured them out with the help of Caleb. At the end of the day I have a environment issue with my docker ghi aka react page not working, so I will get help from the teachers today.
+
+# 7/25
+
+This morning worked with Rosheen to figure out my docker env issue. Wasn't able to fix it but sort of figured out a way to run in locally. For now going to work with a partner to finish up code. Melinda and I are working on deployment.
