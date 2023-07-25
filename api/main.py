@@ -16,6 +16,7 @@ from routers import (
     accounts,
     pest_list,
     pest_add,
+    pest_detail,
 )
 import os
 
@@ -36,6 +37,7 @@ app.include_router(edit_species.router)
 app.include_router(delete_species.router)
 app.include_router(pest_list.router)
 app.include_router(pest_add.router)
+app.include_router(pest_detail.router)
 
 app.add_middleware(
     CORSMiddleware,
