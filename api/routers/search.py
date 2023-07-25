@@ -8,6 +8,7 @@ from fastapi import (
 )
 from typing import Union, List, Optional
 from queries.search import SearchClass, Error, SearchOut
+from authenticator import authenticator
 
 PROJECT_ID = "bababoo"
 PRIVATE_KEY = "wheeeeeeeeee"
@@ -19,6 +20,7 @@ router = APIRouter()
 def search(
     term: str,
     repo: SearchClass = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
 ):
     message = repo.search(term)
     if message == {"message": "Could not get search results"}:

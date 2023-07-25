@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import useToken from "./auth forms/newindex.tsx";
 
 function SearchList() {
     const [term, setTerm] = useState('');
     const [results, setResults] = useState([]);
+    const { token } = useToken();
 
     const handleTermChange = (event) => {
         setTerm(event.target.value);
@@ -15,6 +17,7 @@ function SearchList() {
             method: "get",
             headers: {
                 'Content-Type': 'application/json',
+                 Authorization: `Bearer ${token}`,
             },
         };
         const response = await fetch(url, fetchConfig);
