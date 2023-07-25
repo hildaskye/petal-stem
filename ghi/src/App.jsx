@@ -38,7 +38,7 @@ function App() {
           <Route path="pest/${pest_id}/" element={<PestDetail />} />
           <Route path="pest/add" element={<PestForm />} />
           <Route path="pest/list" element={<PestList />} />
-          <Route path="species" element={<PlantSpeciesForm />} />
+          <Route path="species/add" element={<PlantSpeciesForm />} />
           <Route path="garden" element={<Dashboard />} />
           <Route path="garden/${user_id}/plant" element={<PlantForm />} />
           <Route

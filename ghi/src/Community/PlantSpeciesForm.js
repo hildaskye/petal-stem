@@ -1,36 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from 'react';
+import useToken from '@galvanize-inc/jwtdown-for-react';
 
 export default function PlantSpeciesForm() {
     const [name, setSpecies] = useState('');
-    const [location_type, setLocation] = useState("");
-    const [cycle_type, setLifecycle] = useState("");
+    const [location_type, setLocation] = useState('');
+    const [cycle_type, setLifecycle] = useState('');
     const [picture, setPicture] = useState('');
-    const [user, setUser] = useState("");
+    const [user_id, setUser] = useState('');
+    const { token } = useToken();
 
-    const handleSpeciesChange = (e) => {
-      const value = e.target.value;
-      setSpecies(value);
-    };
-    const handleLocationChange = (e) => {
-      const value = e.target.value;
-      setLocation(value);
-    };
-    const handleLifecycleChange = (e) => {
-      const value = e.target.value;
-      setLifecycle(value);
-    };
-    const handlePictureChange = (e) => {
-      const value = e.target.value;
-      setPicture(value);
-    };
-    const handleUserChange = (e) => {
-      const value = e.target.value;
-      setUser(value);
-    };
+    const handleSpeciesChange = (e) => {setSpecies(e.target.value)};
+    const handleLocationChange = (e) => {setLocation(e.target.value)};
+    const handleLifecycleChange = (e) => {setLifecycle(e.target.value)};
+    const handlePictureChange = (e) => {setPicture(e.target.value)};
+    const handleUserChange = (e) => {setUser(e.target.value)};
+
     const handleSubmit = async (e) => {
       e.preventDefault();
       const data = {};
       data.name = name;
+      data.location_type = location_type;
+      data.cycle_type = cycle_type;
+      data.picture = picture;
+      data.user_id = user_id;
 
       const speciesUrl = `${process.env.REACT_APP_API_HOST}/api/species`;
       const fetchConfig = {
@@ -38,14 +30,20 @@ export default function PlantSpeciesForm() {
         body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
-      };
-      const response = await fetch(speciesUrl, fetchConfig);
-      if (response.ok) {
-        const newSpecies = await response.json();
-        setSpecies("");
       }
-    };
+
+      const response = await fetch(speciesUrl, fetchConfig);
+
+      if (response.ok) {
+        setSpecies('');
+        setLocation('');
+        setLifecycle('');
+        setPicture('');
+        setUser('');
+      }
+      }
 
 
   return (
@@ -60,7 +58,7 @@ export default function PlantSpeciesForm() {
               placeholder="Common name"
               required
               type="text"
-              id="species"
+              id="name"
               className="form-control"
             />
           </div>
@@ -75,7 +73,7 @@ export default function PlantSpeciesForm() {
               value={location_type}
               aria-label=".form-select-sm example"
             >
-              <option selected>Location of plant</option>
+              <option defaultValue>Location of plant</option>
               <option value="Indoor">Indoors</option>
               <option value="Outdoor">Outdoors</option>
             </select>
@@ -91,7 +89,7 @@ export default function PlantSpeciesForm() {
               value={cycle_type}
               aria-label=".form-select-sm example"
             >
-              <option selected>Lifecycle</option>
+              <option defaultValue>Lifecycle</option>
               <option value="Annual">Annual</option>
               <option value="Biennial">Biennial</option>
               <option value="Perennial">Perennial</option>
@@ -114,11 +112,11 @@ export default function PlantSpeciesForm() {
           <div className="form-floating mb-3">
             <input
               onChange={handleUserChange}
-              value={user}
+              value={user_id}
               placeholder="user id"
               required
               type="text"
-              id="user"
+              id="user_id"
               className="form-control"
             />
           </div>

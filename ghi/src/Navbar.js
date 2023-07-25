@@ -23,16 +23,16 @@ function Navbar(props){
                         <NavLink className="nav-link" to="/gardens">Gardens</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" to="/pest">Pest Detail</NavLink>
+                        <NavLink className="nav-link" to="/pest/${pest_id}/">Pest Detail</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" to="/pest">Add a pest</NavLink>
+                        <NavLink className="nav-link" to="/pest/add">Add a pest</NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/pest">Pest List</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" to="/species">Add a plant species</NavLink>
+                        <NavLink className="nav-link" to="/species/add">Add a plant species</NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/garden">Your garden</NavLink>
