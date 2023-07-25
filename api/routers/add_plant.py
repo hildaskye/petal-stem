@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends
-from typing import Union, List
+from typing import Union
 from authenticator import authenticator
 from queries.add_plant import Error, PlantIn, PlantOut, PlantRepository
 
