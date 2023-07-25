@@ -1,12 +1,13 @@
 import useToken from "./newindex.tsx";
+// import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { token, login } = useToken();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   // const { token } =
 
   const handleSubmit = (e) => {
@@ -14,7 +15,7 @@ const LoginForm = () => {
     console.log(`username: ${username} password: ${password}`);
     login(username, password);
     e.target.reset();
-    // navigate("/pest");
+    navigate("/search");
   };
 
   console.log("working token??", token);

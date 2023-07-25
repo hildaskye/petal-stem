@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useToken from '@galvanize-inc/jwtdown-for-react';
+import useToken from "./auth forms/newindex.tsx";
 
 function SearchList() {
     const [term, setTerm] = useState('');
