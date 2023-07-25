@@ -1,9 +1,10 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, useNavigate, useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import ErrorNotification from "./ErrorNotification.js";
 import "./App.css";
 import { AuthProvider } from "./auth forms/newindex.tsx";
-
+import useToken from "@galvanize-inc/jwtdown-for-react";
+import useUser from "./auth forms/useUser.js";
 import Navbar from "./Navbar.js";
 import MainPage from "./MainPage.js";
 import Login from "./auth forms/Login.jsx";
@@ -20,7 +21,10 @@ import Dashboard from "./User/Dashboard.js";
 import PlantDetail from "./User/PlantDetail.js";
 import PlantForm from "./User/PlantForm.js";
 
-function App() {
+function App(props) {
+  const { token } = useToken();
+  const { user } = useUser(token);
+
   return (
     <AuthProvider baseUrl={process.env.REACT_APP_API_HOST}>
       <link

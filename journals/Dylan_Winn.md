@@ -1,5 +1,5 @@
 ## 7/24
-
+Protected all Endpoints and started working on tokens for front-end pages, confirmed working on Search and Gardens pages
 
 ## 7/20
 Got working react list pages for both Search and Community Pages
