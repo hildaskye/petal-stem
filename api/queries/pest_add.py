@@ -1,5 +1,4 @@
 from pydantic import BaseModel
-from typing import Union, List
 from queries.pool import pool
 
 
@@ -34,12 +33,7 @@ class PestRepository:
                         VALUES
                             (%s, %s, %s, %s)
                         """,
-                        [
-                            pest.name,
-                            pest.picture,
-                            pest.log,
-                            pest.user_id
-                        ]
+                        [pest.name, pest.picture, pest.log, pest.user_id],
                     )
                     db.execute(
                         "SELECT id FROM pest WHERE name = %s", [pest.name]

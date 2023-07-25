@@ -1,5 +1,4 @@
 from pydantic import BaseModel
-from typing import List, Union
 from queries.pool import pool
 
 
@@ -41,10 +40,13 @@ class SpeciesRepository:
                             species.picture,
                             species.location_type,
                             species.cycle_type,
-                            species.user_id
-                        ]
+                            species.user_id,
+                        ],
                     )
-                    db.execute("SELECT id FROM species WHERE name = %s", [species.name])
+                    db.execute(
+                        "SELECT id FROM species WHERE name = %s",
+                        [species.name],
+                    )
                     id = db.fetchone()[0]
                     old_data = species.dict()
                     return SpeciesOut(id=id, **old_data)
