@@ -1,5 +1,3 @@
-/* eslint-disable  @typescript-eslint/no-explicit-any */
-
 import React, {
   createContext,
   Dispatch,
@@ -15,7 +13,6 @@ interface LoginInterface {
   password: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type RegistrationData = LoginInterface | any;
 
 /**
