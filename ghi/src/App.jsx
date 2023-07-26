@@ -1,14 +1,13 @@
-import { Routes, Route } from "react-router-dom";
+import {Routes, Route } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import ErrorNotification from "./ErrorNotification.js";
 import "./App.css";
-import { AuthProvider } from "./auth forms/newindex.tsx";
-import useToken from "@galvanize-inc/jwtdown-for-react";
-import useUser from "./auth forms/useUser";
+import useToken from "./auth forms/newindex.tsx";
+import useUser from "./auth forms/useUser.js";
 import Navbar from "./Navbar.js";
 import MainPage from "./MainPage.js";
 import Login from "./auth forms/Login.jsx";
 import SignUp from "./auth forms/SignUp.jsx";
+import Logout from "./auth forms/Logout.jsx";
 // community
 import GardenList from "./Community/GardenList.js";
 import PestDetail from "./Community/PestDetail.js";
@@ -20,11 +19,12 @@ import SearchList from "./Search.js";
 import Dashboard from "./User/Dashboard.js";
 import PlantDetail from "./User/PlantDetail.js";
 import PlantForm from "./User/PlantForm.js";
-import Logout from "./auth forms/Logout.jsx";
 
 function App(props) {
   const { token } = useToken();
   const { user } = useUser(token);
+  const domain = /https:\/\/[^/]+/;
+  const basename = process.env.PUBLIC_URL.replace(domain, "");
 
   return (
     <>
@@ -47,11 +47,9 @@ function App(props) {
           <Route path="pest/list" element={<PestList />} />
           <Route path="species/add" element={<PlantSpeciesForm />} />
           <Route path="garden" element={<Dashboard />} />
-          <Route path="garden/:user_id?/plant" element={<PlantForm />} />
-          <Route
-            path="garden/:user_id?/plant/:plant_id?"
-            element={<PlantDetail />}
-          />
+          <Route path= "garden/:user_id?/plant" element={<PlantForm />} />
+          <Route path="garden/:user_id?/plant/:plant_id?" element={<PlantDetail />}/>
+
           <Route path="/search" element={<SearchList />} />
         </Routes>
       </div>

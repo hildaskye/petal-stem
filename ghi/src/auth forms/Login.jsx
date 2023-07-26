@@ -15,7 +15,7 @@ const LoginForm = () => {
     console.log(`username: ${username} password: ${password}`);
     login(username, password);
     e.target.reset();
-    navigate("/search");
+    navigate("/gardens");
   };
 
   console.log("working token??", token);

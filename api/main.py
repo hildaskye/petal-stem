@@ -17,6 +17,7 @@ from routers import (
     pest_list,
     pest_add,
     pest_detail,
+    species_list,
 )
 import os
 
@@ -35,6 +36,7 @@ app.include_router(edit_pest.router)
 app.include_router(add_species.router)
 app.include_router(edit_species.router)
 app.include_router(delete_species.router)
+app.include_router(species_list.router)
 app.include_router(pest_list.router)
 app.include_router(pest_add.router)
 app.include_router(pest_detail.router)
@@ -59,3 +61,8 @@ def launch_details():
             "min": "00",
         }
     }
+
+
+@app.get("/")
+def root():
+    return {"message": "You hit the root path!"}

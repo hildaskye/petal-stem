@@ -139,3 +139,25 @@ in GitLab.
 Merge a change into main to kick off the initial deploy. Once the build pipeline
 finishes you should be able to see an "under construction" page on your GitLab
 pages site.
+
+glv-cloud-cli deploy -a marptapi -i registry.gitlab.com/petal-stem/petal-stem/api:latest -e SIGNING_KEY=meow -e DATABASE_URL=postgresql://petal:stem@postgres/vase@mar-9-pt-vase-service.default.svc.cluster.local/postgres -e CORS_HOST=https://petal-stem.gitlab.io
+
+      DATABASE_URL: postgresql://petal:stem@postgres/vase
+      SIGNING_KEY: meow
+
+image - container reg - latest : registry.gitlab.com/petal-stem/petal-stem/api:latest
+
+db url : mar-9-pt-vase-service.default.svc.cluster.local
+
+glv-cloud-cli deploy -a marptapi -i registry.gitlab.com/petal-stem/petal-stem/api:latest -e SIGNING_KEY=meow -e DATABASE_URL=postgresql://petal:stem@mar-9-pt-vase-service.default.svc.cluster.local/postgres -e CORS_HOST=https://petal-stem.gitlab.io
+
+1 - We may have deployed incorrectly.after deploying the app we are getting a 503 when we are checking the FASTAPI part of deployment. We think that we might have wrote a wrong code when executing the final command of deployment.
+
+This is what we wrote: glv-cloud-cli deploy -a marptapi -i registry.gitlab.com/petal-stem/petal-stem/api:latest -e SIGNING_KEY=meow -e DATABASE_URL=postgresql://petal:stem@postgres/vase@mar-9-pt-vase-service.default.svc.cluster.local/postgres -e CORS_HOST=https://petal-stem.gitlab.io
+
+This is what we think we should've have written: glv-cloud-cli deploy -a stemapi -i registry.gitlab.com/petal-stem/petal-stem/api:latest -e SIGNING_KEY=meow -e DATABASE_URL=postgresql://petal:stem@mar-9-pt-vase-service.default.svc.cluster.local/postgres -e CORS_HOST=https://petal-stem.gitlab.io
+
+We don't know what next steps are or if there is a quick fix. Please help asap! <3
+
+2 - Room 2, with David
+3 - Following along in @Rosheen's notion notes and lecture. Not sure if there is a way to delete the deployment, or maybe it's another issue.

@@ -1,5 +1,5 @@
 from jwtdown_fastapi.authentication import Token
-from typing import List, Union
+from typing import List
 from pydantic import BaseModel
 from fastapi import (
     Depends,
