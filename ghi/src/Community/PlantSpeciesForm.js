@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import useToken from "../auth forms/newindex.tsx";
 
 export default function PlantSpeciesForm() {
     const [name, setSpecies] = useState('');
@@ -6,6 +7,7 @@ export default function PlantSpeciesForm() {
     const [cycle_type, setLifecycle] = useState("");
     const [picture, setPicture] = useState('');
     const [user, setUser] = useState("");
+    const { token } = useToken();
 
     const handleSpeciesChange = (e) => {
       const value = e.target.value;
@@ -38,6 +40,7 @@ export default function PlantSpeciesForm() {
         body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
+           Authorization: `Bearer ${token}`,
         },
       };
       const response = await fetch(speciesUrl, fetchConfig);
