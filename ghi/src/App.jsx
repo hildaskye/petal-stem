@@ -38,17 +38,17 @@ function App(props) {
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<SignUp />} />
-          <Route path="logout" element={<Logout />} />
-          <Route path="gardens" element={<GardenList />} />
-          <Route path="pest/${pest_id}/" element={<PestDetail />} />
-          <Route path="pest/add" element={<PestForm />} />
-          <Route path="pest/list" element={<PestList />} />
-          <Route path="species" element={<PlantSpeciesForm />} />
-          <Route path="garden" element={<Dashboard />} />
-          <Route path= "garden/:user_id?/plant" element={<PlantForm />} />
-          <Route path="garden/:user_id?/plant/:plant_id?" element={<PlantDetail />}/>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/gardens" element={<GardenList />} />
+          <Route path="/pest/${pest_id}/" element={<PestDetail />} />
+          <Route path="/pest/add" element={<PestForm />} />
+          <Route path="/pest/list" element={<PestList />} />
+          <Route path="/species" element={<PlantSpeciesForm />} />
+          <Route path="/garden" element={<Dashboard />} />
+          <Route path= "/garden/:user_id?/plant" element={<PlantForm />} />
+          <Route path="/garden/:user_id/plant/:plant_id" element={<PlantDetail />}/>
 
           <Route path="/search" element={<SearchList />} />
         </Routes>

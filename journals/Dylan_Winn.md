@@ -1,7 +1,7 @@
 ## 7/25
 Got navbar automatically updating to show only login and sign up when logged out, and logout and the other options when signed in.
 Incidentally, also created logout function
-Got plant detail page working
+Got plant detail page working with David
 Created back-end endpoint to list species with Cindy
 
 ## 7/24
