@@ -1,24 +1,26 @@
-import {Routes, Route } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import {
+  Navbar,
+  MainPage,
+  Login,
+  SignUp,
+  Logout,
+  GardenList,
+  PestDetail,
+  PestForm,
+  PestList,
+  PlantSpeciesForm,
+  SearchList,
+  Dashboard,
+  PlantDetail,
+  PlantForm,
+  SpeciesList,
+  useToken,
+  useUser,
+} from "./imports";
 import "./App.css";
-import useToken from "./auth forms/newindex.tsx";
-import useUser from "./auth forms/useUser.js";
-import Navbar from "./Navbar.js";
-import MainPage from "./MainPage.js";
-import Login from "./auth forms/Login.jsx";
-import SignUp from "./auth forms/SignUp.jsx";
-import Logout from "./auth forms/Logout.jsx";
-// community
-import GardenList from "./Community/GardenList.js";
-import PestDetail from "./Community/PestDetail.js";
-import PestForm from "./Community/PestForm.js";
-import PestList from "./Community/PestList.js";
-import PlantSpeciesForm from "./Community/PlantSpeciesForm.js";
-import SearchList from "./Search.js";
-// user logged in
-import Dashboard from "./User/Dashboard.js";
-import PlantDetail from "./User/PlantDetail.js";
-import PlantForm from "./User/PlantForm.js";
+
 
 function App(props) {
   const { token } = useToken();
@@ -45,7 +47,8 @@ function App(props) {
           <Route path="/pest/${pest_id}/" element={<PestDetail />} />
           <Route path="/pest/add" element={<PestForm />} />
           <Route path="/pest/list" element={<PestList />} />
-          <Route path="/species" element={<PlantSpeciesForm />} />
+          <Route path="/species/add" element={<PlantSpeciesForm />} />
+          <Route path="/species" element={<SpeciesList />} />
           <Route path="/garden" element={<Dashboard />} />
           <Route path= "/garden/:user_id?/plant" element={<PlantForm />} />
           <Route path="/garden/:user_id/plant/:plant_id" element={<PlantDetail />}/>
