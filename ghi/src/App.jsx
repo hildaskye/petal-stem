@@ -47,9 +47,9 @@ function App(props) {
           <Route path="pest/list" element={<PestList />} />
           <Route path="species/add" element={<PlantSpeciesForm />} />
           <Route path="garden" element={<Dashboard />} />
-          <Route path="garden/${user_id}/plant" element={<PlantForm />} />
+          <Route path="garden/:user_id?/plant" element={<PlantForm />} />
           <Route
-            path="garden/${user_id}/plant/${plant_id}"
+            path="garden/:user_id?/plant/:plant_id?"
             element={<PlantDetail />}
           />
           <Route path="/search" element={<SearchList />} />

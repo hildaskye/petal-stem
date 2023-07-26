@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useToken from '@galvanize-inc/jwtdown-for-react';
+import useToken from "../auth forms/newindex.tsx";
 
 export default function PlantSpeciesForm() {
     const [name, setSpecies] = useState('');

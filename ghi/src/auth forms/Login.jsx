@@ -26,7 +26,7 @@ const LoginForm = () => {
       <div className="card-body">
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className="mb-3">
-            <label className="form-label">Username:</label>
+            <label className="form-label">User email:</label>
             <input
               name="username"
               type="text"

@@ -31,7 +31,7 @@ function Navbar(props) {
                                 <NavLink className="nav-link" to="/pest">Pest List</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/species">Add a plant species</NavLink>
+                                <NavLink className="nav-link" to="/species/add">Add a plant species</NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/garden">Your garden</NavLink>
