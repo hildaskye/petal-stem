@@ -12,6 +12,5 @@ export { default as SearchList } from "./Search.js";
 export { default as Dashboard } from "./User/Dashboard.js";
 export { default as PlantDetail } from "./User/PlantDetail.js";
 export { default as PlantForm } from "./User/PlantForm.js";
-export { default as SpeciesList } from "./Community/SpeciesList";
-export { default as useToken } from "./auth forms/newindex.tsx";
+export { default as SpeciesList } from "./Community/SpeciesList.js";
 export { default as useUser } from "./auth forms/useUser.js";

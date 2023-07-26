@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import useToken from "./auth forms/newindex.tsx";
 import {
   Navbar,
   MainPage,
@@ -16,7 +17,6 @@ import {
   PlantDetail,
   PlantForm,
   SpeciesList,
-  useToken,
   useUser,
 } from "./imports";
 import "./App.css";
@@ -44,13 +44,13 @@ function App(props) {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/gardens" element={<GardenList />} />
-          <Route path="/pest/${pest_id}/" element={<PestDetail />} />
+          <Route path="/pest/:pest_id" element={<PestDetail />} />
           <Route path="/pest/add" element={<PestForm />} />
           <Route path="/pest/list" element={<PestList />} />
           <Route path="/species/add" element={<PlantSpeciesForm />} />
           <Route path="/species" element={<SpeciesList />} />
           <Route path="/garden" element={<Dashboard />} />
-          <Route path= "/garden/:user_id?/plant" element={<PlantForm />} />
+          <Route path= "/garden/:user_id/plant" element={<PlantForm />} />
           <Route path="/garden/:user_id/plant/:plant_id" element={<PlantDetail />}/>
 
           <Route path="/search" element={<SearchList />} />

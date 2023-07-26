@@ -21,7 +21,7 @@ export default function PestForm() {
       pestInfo,
     };
 
-    const plantUrl = "${process.env.REACT_APP_API_HOST}/api/pest/";
+    const plantUrl = "${process.env.REACT_APP_API_HOST}/api/pest";
     const fetchConfig = {
       method: "post",
       body: JSON.stringify(data),
