@@ -13,7 +13,6 @@ interface LoginInterface {
   password: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type RegistrationData = LoginInterface | any;
 
 /**
