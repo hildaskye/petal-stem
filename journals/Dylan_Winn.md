@@ -1,3 +1,9 @@
+## 7/25
+Got navbar automatically updating to show only login and sign up when logged out, and logout and the other options when signed in.
+Incidentally, also created logout function
+Got plant detail page working with David
+Created back-end endpoint to list species with Cindy
+
 ## 7/24
 Protected all Endpoints and started working on tokens for front-end pages, confirmed working on Search and Gardens pages
 
