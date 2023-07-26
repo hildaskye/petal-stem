@@ -22,6 +22,9 @@ function Navbar(props) {
                                 <NavLink className="nav-link" to="/logout">Logout</NavLink>
                             </li>
                             <li className="nav-item">
+                                <NavLink className="nav-link" to="/gardens">Community Page</NavLink>
+                            </li>
+                            <li className="nav-item">
                                 <NavLink className="nav-link" to="/pest">Pest Detail</NavLink>
                             </li>
                             <li className="nav-item">
