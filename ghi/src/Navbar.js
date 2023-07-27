@@ -62,13 +62,13 @@ function Navbar({ user }) {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to={`/garden/${user.id}`}>
-                    Dashboard
+                  <NavLink className="nav-link" to={`/garden/${user.id}/plant/add`}>
+                    Add a Plant
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to={`/garden/${user.id}/plant/add`}>
-                    Add a Plant
+                  <NavLink className="nav-link" to={`/garden/${user.id}`}>
+                    Dashboard
                   </NavLink>
                 </li>
                 <li className="nav-item">

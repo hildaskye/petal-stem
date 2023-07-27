@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useToken from "../auth forms/newindex.tsx";
+import { useNavigate } from "react-router-dom";
 
 export default function PlantSpeciesForm({ user }) {
     const [name, setSpecies] = useState('');
@@ -7,6 +8,7 @@ export default function PlantSpeciesForm({ user }) {
     const [cycle_type, setLifecycle] = useState('');
     const [picture, setPicture] = useState('');
     const { token } = useToken();
+    const navigate = useNavigate();
 
     const handleSpeciesChange = (e) => {setSpecies(e.target.value)};
     const handleLocationChange = (e) => {setLocation(e.target.value)};
@@ -39,6 +41,7 @@ export default function PlantSpeciesForm({ user }) {
         setLocation('');
         setLifecycle('');
         setPicture('');
+        navigate(`/species`);
       }
       }
 
@@ -46,7 +49,7 @@ export default function PlantSpeciesForm({ user }) {
   return (
     <div className="row">
       <div className="offset-3 col-6">
-        <h1>Add a new type of plant!</h1>
+        <h1>Add a new plant species!</h1>
         <form onSubmit={handleSubmit} id="add-plant-form">
           <div className="form-floating mb-3">
             <input

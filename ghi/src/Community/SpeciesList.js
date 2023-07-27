@@ -64,13 +64,13 @@ function SpeciesList() {
                 <td>{specie.name}</td>
                 <td>
                   <button
-                    class="btn btn-warning"
+                    className="btn btn-warning"
                     onClick={() => handleEdit(specie.id)}
                   >
                     Edit
                   </button>
                   <button
-                    class="btn btn-danger"
+                    className="btn btn-danger"
                     onClick={() => handleDelete(specie.id)}
                   >
                     Delete

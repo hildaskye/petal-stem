@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useToken from "../auth forms/newindex.tsx";
+import { useNavigate } from "react-router-dom";
 
 function PestDetail(props) {
     const [pest, setPest] = useState(null);
     const { pest_id } = useParams();
     const { token } = useToken();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getData = async () => {
@@ -31,6 +33,10 @@ function PestDetail(props) {
         return <div>Loading...</div>;
     }
 
+    const handleEdit = (pestId) => {
+        navigate(`/pest/${pestId}/edit`);
+    };
+
     const handleDelete = async () => {
         try {
             const deleteUrl = `${process.env.REACT_APP_API_HOST}/api/pest/${pest_id}`;
@@ -55,6 +61,7 @@ function PestDetail(props) {
     };
 
 
+
     return (
         <div>
             <h1>Pest Details</h1>
@@ -73,7 +80,10 @@ function PestDetail(props) {
                     <td>{pest.picture}</td>
                     <td>{pest.log}</td>
                     <td>{pest.user_id}</td>
-                    <td><button class="btn btn-danger" onClick={handleDelete}>Delete</button></td>
+                    <td>
+                        <button className= "btn btn-warning" onClick={handleEdit}>Edit</button>
+                        <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
+                    </td>
                 </tr>
             </tbody>
             </table>

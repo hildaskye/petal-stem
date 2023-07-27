@@ -19,7 +19,8 @@ import {
   SpeciesList,
   useUser,
   EditSpecies,
-  EditPlant
+  EditPlant,
+  EditPest
 } from "./imports";
 import "./App.css";
 
@@ -41,23 +42,26 @@ function App(props) {
       <Navbar user={user} />
       <div className="container">
         <Routes>
-          <Route path="/garden" element={<Dashboard />} />
-          <Route path ="/species/:species_id/edit" element={ <EditSpecies />}/>
-          <Route path ="/garden/:user_id/plant/:plant_id/edit" element={ <EditPlant />}/>
-          <Route path="/gardens" element={<GardenList />} />
+          <Route path="/search" element={<SearchList />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/" element={<MainPage />} />
-          <Route path="/pest/:pest_id" element={<PestDetail />} />
-          <Route path="/pest/add" element={<PestForm user={user} />} />
-          <Route path="/pest/list" element={<PestList />} />
-          <Route path="/species/add" element={<PlantSpeciesForm user={user} />} />
-          <Route path="/species" element={<SpeciesList />} />
+          {/* PLANTS */}
           <Route path="/garden/:user_id?" element={<Dashboard />} />
+          <Route path="/gardens" element={<GardenList />} />
           <Route path= "/garden/:user_id/plant/add" element={<PlantForm />} />
+          <Route path ="/garden/:user_id/plant/:plant_id/edit" element={ <EditPlant />}/>
           <Route path="/garden/:user_id/plant/:plant_id" element={<PlantDetail />}/>
-          <Route path="/search" element={<SearchList />} />
-          <Route path="/signup" element={<SignUp />} />
+          {/* SPECIES */}
+          <Route path="/species/add" element={<PlantSpeciesForm user={user} />} />
+          <Route path ="/species/:species_id/edit" element={ <EditSpecies user={user} />}/>
+          <Route path="/species" element={<SpeciesList />} />
+          {/* PESTS */}
+          <Route path="/pest/add" element={<PestForm user={user} />} />
+          <Route path="/pest/:pest_id/edit" element={<EditPest user={user} />} />
+          <Route path="/pest/:pest_id" element={<PestDetail />} />
+          <Route path="/pest/list" element={<PestList />} />
         </Routes>
       </div>
       <script

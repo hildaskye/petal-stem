@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useToken from "../auth forms/newindex.tsx";
+import { useNavigate } from "react-router-dom";
 
-export default function PestForm() {
+export default function PestForm({ user }) {
     const [name, setPest] = useState('');
     const [picture, setPicture] = useState('');
     const [log, setLog] = useState('');
-    const [user_id, setUser] = useState('');
     const { token } = useToken();
+    const navigate = useNavigate();
 
     const handlePestChange = (e) => {setPest(e.target.value)};
     const handlePictureChange = (e) => {setPicture(e.target.value)};
     const handleLogChange = (e) => {setLog(e.target.value)};
-    const handleUserChange = (e) => {setUser(e.target.value)};
 
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -19,7 +19,7 @@ export default function PestForm() {
       data.name = name;
       data.picture = picture;
       data.log = log;
-      data.user_id = user_id;
+      data.user_id = user.id;
 
       const pestUrl = `${process.env.REACT_APP_API_HOST}/api/pest`;
       const fetchConfig = {
@@ -37,7 +37,7 @@ export default function PestForm() {
         setPest('');
         setPicture('');
         setLog('');
-        setUser('');
+        navigate(`/pest/list`)
       }
       }
 
@@ -63,7 +63,7 @@ export default function PestForm() {
             <input
               onChange={handlePictureChange}
               value={picture}
-              placeholder="Add a pest picture url here!"
+              placeholder="Add a picture of the pest"
               required
               type="text"
               id="picture"
@@ -75,26 +75,13 @@ export default function PestForm() {
             <input
               onChange={handleLogChange}
               value={log}
-              placeholder="Add some log about the pest here!"
+              placeholder="Any useful info about this pest?"
               required
               type="text"
               id="log"
               className="form-control"
             />
           </div>
-
-          <div className="form-floating mb-3">
-            <input
-              onChange={handleUserChange}
-              value={user_id}
-              placeholder="user id"
-              required
-              type="text"
-              id="user_id"
-              className="form-control"
-            />
-          </div>
-
           <button className="btn btn-primary">Create!</button>
         </form>
       </div>
