@@ -7,11 +7,11 @@ router = APIRouter()
 
 
 @router.get("/api/species", response_model=Union[List[SpeciesOut], Error])
-def get_all(
+def species_list(
     repo: SpeciesList = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    message = repo.get_all()
+    message = repo.species_list()
     if message == {"message": "Could not get list of species"}:
         Response.status_code = 404
     return message

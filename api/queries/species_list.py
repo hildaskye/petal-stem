@@ -17,7 +17,7 @@ class SpeciesOut(BaseModel):
 
 
 class SpeciesList:
-    def get_all(self) -> Union[List[SpeciesOut], Error]:
+    def species_list(self) -> Union[List[SpeciesOut], Error]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
