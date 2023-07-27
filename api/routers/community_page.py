@@ -7,9 +7,6 @@ from authenticator import authenticator
 from typing import Union, List
 from queries.community_page import UserGardens, Error, GardenOut
 
-PROJECT_ID = "bababoo"
-PRIVATE_KEY = "wheeeeeeeeee"
-
 router = APIRouter()
 
 

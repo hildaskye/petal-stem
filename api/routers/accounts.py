@@ -38,14 +38,6 @@ class AccountToken(Token):
     account: AccountOut
 
 
-# @router.get("/api/protected", response_model=bool)
-# async def get_protected(
-#     request: Request,
-#     account_data: dict = Depends(authenticator.get_current_account_data),
-# ):
-#     return True
-
-
 @router.get("/token", response_model=AccountToken | None)
 async def get_token(
     request: Request,
@@ -92,27 +84,3 @@ async def delete(
     repo: AccountRepository = Depends(),
 ) -> bool:
     return repo.delete(id)
-
-
-# @router.put("/api/accounts/{email}", response_model=AccountToken | HttpError)
-# async def update_account(
-#     email: str,
-#     info: AccountIn,
-#     request: Request,
-#     response: Response,
-#     repo: AccountRepository = Depends(),
-# ):
-#     original_password = info.password
-#     hashed_password = authenticator.hash_password(info.password)
-#     info.password = hashed_password
-#     updated_account = repo.update(email, info)
-#     if not updated_account:
-#         raise HTTPException(
-#             status_code=status.HTTP_404_NOT_FOUND,
-#             detail="Account not found or update failed",
-#         )
-#     form = AccountForm(
-#         username=updated_account.email, password=original_password
-#     )
-#     token = await authenticator.login(response, request, form, repo)
-#     return AccountToken(account=updated_account, **token.dict())

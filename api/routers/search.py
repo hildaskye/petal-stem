@@ -3,11 +3,6 @@ from typing import Union, List
 from queries.search import SearchClass, Error, SearchOut
 from authenticator import authenticator
 
-
-PROJECT_ID = "bababoo"
-PRIVATE_KEY = "wheeeeeeeeee"
-
-
 router = APIRouter()
 
 

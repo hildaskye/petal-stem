@@ -38,7 +38,7 @@ function App(props) {
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossOrigin="anonymous"
       />
-      <Navbar />
+      <Navbar user={user} />
       <div className="container">
         <Routes>
           <Route path="/garden" element={<Dashboard />} />
@@ -49,11 +49,12 @@ function App(props) {
           <Route path="/logout" element={<Logout />} />
           <Route path="/" element={<MainPage />} />
           <Route path="/pest/:pest_id" element={<PestDetail />} />
-          <Route path="/pest/add" element={<PestForm />} />
+          <Route path="/pest/add" element={<PestForm user={user} />} />
           <Route path="/pest/list" element={<PestList />} />
-          <Route path="/species/add" element={<PlantSpeciesForm />} />
+          <Route path="/species/add" element={<PlantSpeciesForm user={user} />} />
           <Route path="/species" element={<SpeciesList />} />
-          <Route path= "/garden/:user_id/plant" element={<PlantForm />} />
+          <Route path="/garden/:user_id?" element={<Dashboard />} />
+          <Route path= "/garden/:user_id/plant/add" element={<PlantForm />} />
           <Route path="/garden/:user_id/plant/:plant_id" element={<PlantDetail />}/>
           <Route path="/search" element={<SearchList />} />
           <Route path="/signup" element={<SignUp />} />
