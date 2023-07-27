@@ -87,7 +87,7 @@ function EditSpecies() {
       };
       fetchData();
     }
-  }, [token, species_id]); // <-- Include species_id in the dependency array
+  }, [token, species_id]);
 
   return (
     <div className="row">

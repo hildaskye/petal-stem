@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
 import useToken from "./newindex.tsx";
 
 const SignupForm = () => {
@@ -8,7 +7,6 @@ const SignupForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { register } = useToken();
-  // const navigate = useNavigate();
 
   const handleRegistration = (e) => {
     e.preventDefault();
@@ -20,7 +18,6 @@ const SignupForm = () => {
     };
     register(accountData, `${process.env.REACT_APP_API_HOST}/api/accounts`);
     e.target.reset();
-    // navigate("/");
   };
 
   return (

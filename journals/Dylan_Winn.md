@@ -1,3 +1,7 @@
+## 7/27
+Helped David on screenshare and VS Code Share for Edit Plant function
+Same with Cindy on getting Navbar and Dashboard links working as expected
+
 ## 7/26
 Got front-end species list page working, and edited App.js imports with imports.js to make cleaner
 Got unit test done

@@ -29,7 +29,6 @@ function App(props) {
   const domain = /https:\/\/[^/]+/;
   const basename = process.env.PUBLIC_URL.replace(domain, "");
 
-  console.log("User ID in App.js=", user.id)
   return (
     <>
       <link

@@ -38,9 +38,10 @@ Having some trouble with my frontend endpoints. They were not submitting the dat
 David was having environmental issues that affected his ghi. We looked over all our code to see if it matched. We also merged to have the updated codes.
 
 # 7/25
-Working on one of my frontend endpoints made me realize we were missing a backend endpoint. I worked with Dylan to make a species list endpoint.
+Working on one of my frontend endpoints made me realize we were missing a backend endpoint. I worked with Dylan to make a species list endpoint. Helped team work on deployment.
 
-# 7/
-Worked on pulling up a species list.
+# 7/26
+Worked on pulling up a species list for a dropdown menu. Completed that then moved on to my final frontend endpoint. I worked on the user profile page that pulls all of the user's plants they inputted themselves. Worked with SEIRs to help retrieve user id. Also worked on some unit tests.
 
-# 7/
+# 7/27
+Continued to work on figuring out how to retrieve user id with Rosheen and Paul. Investigated as far as going into the backend. Then worked with Dylan to go over our codes. Finally figured out how to retrieve user id with her help! :D

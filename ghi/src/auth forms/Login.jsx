@@ -1,5 +1,4 @@
 import useToken from "./newindex.tsx";
-// import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
