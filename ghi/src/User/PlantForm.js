@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import useToken from "../auth forms/newindex.tsx";
+import { useParams } from "react-router-dom";
 
 export default function PlantForm() {
     const [species, setSpeciesList] = useState([]);
     const [nickname, setPlantNickname] = useState('');
     const [log, setPlantLog] = useState('');
     const [species_id, setSpecies] = useState('');
-    const [user_id, setUser] = useState('');
     const { token } = useToken();
+    const { user_id } = useParams();
 
     const handlePlantNicknameChange = (e) => {setPlantNickname(e.target.value)};
     const handlePlantLogChange = (e) => {setPlantLog(e.target.value)};
     const handleSpeciesChange = (e) => {setSpecies(e.target.value)};
-    const handleUserChange = (e) => {setUser(e.target.value)};
 
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -37,7 +37,6 @@ export default function PlantForm() {
         setPlantNickname('');
         setPlantLog('');
         setSpecies('');
-        setUser('');
       }
     }
 
@@ -110,18 +109,6 @@ export default function PlantForm() {
               name="log"
               className="form-control"
             ></textarea>
-          </div>
-
-          <div className="form-floating mb-3">
-            <input
-              onChange={handleUserChange}
-              value={user_id}
-              placeholder="user id"
-              required
-              type="text"
-              id="user_id"
-              className="form-control"
-            />
           </div>
 
           <button className="btn btn-primary">Create!</button>

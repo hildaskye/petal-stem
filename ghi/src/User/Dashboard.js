@@ -7,12 +7,9 @@ export default function Dashboard() {
   const { user_id } = useParams();
   const { token } = useToken();
 
-    console.log("user_id", user_id)
-
   useEffect(() => {
     async function getData () {
       const gardenUrl = `${process.env.REACT_APP_API_HOST}/api/garden/${user_id}`;
-      console.log("API URL:", gardenUrl); // Log the API URL
 
       const fetchConfig = {
         method: "get",
@@ -21,11 +18,10 @@ export default function Dashboard() {
           Authorization: `Bearer ${token}`,
         },
       };
+
       const response = await fetch(gardenUrl, fetchConfig);
       if (response.ok) {
         const data = await response.json();
-        console.log("API Data:", data); // To check the response data
-
         setPlants(data);
       }
     };

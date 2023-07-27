@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useToken from "../auth forms/newindex.tsx";
 
-export default function PlantSpeciesForm() {
+export default function PlantSpeciesForm({ user }) {
     const [name, setSpecies] = useState('');
     const [location_type, setLocation] = useState('');
     const [cycle_type, setLifecycle] = useState('');
     const [picture, setPicture] = useState('');
-    const [user_id, setUser] = useState('');
     const { token } = useToken();
 
     const handleSpeciesChange = (e) => {setSpecies(e.target.value)};
     const handleLocationChange = (e) => {setLocation(e.target.value)};
     const handleLifecycleChange = (e) => {setLifecycle(e.target.value)};
     const handlePictureChange = (e) => {setPicture(e.target.value)};
-    const handleUserChange = (e) => {setUser(e.target.value)};
 
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -22,7 +20,7 @@ export default function PlantSpeciesForm() {
       data.location_type = location_type;
       data.cycle_type = cycle_type;
       data.picture = picture;
-      data.user_id = user_id;
+      data.user_id = user.id;
 
       const speciesUrl = `${process.env.REACT_APP_API_HOST}/api/species`;
       const fetchConfig = {
@@ -41,7 +39,6 @@ export default function PlantSpeciesForm() {
         setLocation('');
         setLifecycle('');
         setPicture('');
-        setUser('');
       }
       }
 
@@ -105,18 +102,6 @@ export default function PlantSpeciesForm() {
               required
               type="text"
               id="picture"
-              className="form-control"
-            />
-          </div>
-
-          <div className="form-floating mb-3">
-            <input
-              onChange={handleUserChange}
-              value={user_id}
-              placeholder="user id"
-              required
-              type="text"
-              id="user_id"
               className="form-control"
             />
           </div>
