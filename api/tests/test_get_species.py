@@ -45,7 +45,7 @@ def fake_get_current_species_data():
 
 
 class EmptySpeciesRepository:
-    def get_all(self):
+    def species_list(self):
         return [
             {
                 "id": 1,

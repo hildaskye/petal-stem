@@ -62,9 +62,6 @@ function EditSpecies() {
     }
   };
   useEffect(() => {
-    console.log("Fetching species data...");
-    console.log("Token:", token);
-    console.log("Species ID:", species_id);
     if (token) {
       const fetchData = async () => {
         const response = await fetch(
