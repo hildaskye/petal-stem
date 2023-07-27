@@ -41,6 +41,6 @@ David was having environmental issues that affected his ghi. We looked over all 
 Working on one of my frontend endpoints made me realize we were missing a backend endpoint. I worked with Dylan to make a species list endpoint.
 
 # 7/
-
+Worked on pulling up a species list.
 
 # 7/

@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import useToken from "../auth forms/newindex.tsx";
 
 export default function PlantForm() {
-    const [name, setSpeciesList] = useState([]);
+    const [species, setSpeciesList] = useState([]);
     const [nickname, setPlantNickname] = useState('');
     const [log, setPlantLog] = useState('');
-    const [species, setSpecies] = useState('');
+    const [species_id, setSpecies] = useState('');
     const [user_id, setUser] = useState('');
     const { token } = useToken();
 
@@ -19,10 +19,10 @@ export default function PlantForm() {
       const data = {};
       data.nickname = nickname;
       data.log = log;
-      data.species = species;
+      data.species_id = parseInt(species_id);
       data.user_id = user_id;
 
-      const gardenUrl = `${process.env.REACT_APP_API_HOST}/api/garden`;
+      const gardenUrl = `${process.env.REACT_APP_API_HOST}/api/garden/${user_id}/plant`;
       const fetchConfig = {
         method: "post",
         body: JSON.stringify(data),
@@ -30,7 +30,7 @@ export default function PlantForm() {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-      }
+      };
 
       const response = await fetch(gardenUrl, fetchConfig);
       if (response.ok) {
@@ -39,7 +39,7 @@ export default function PlantForm() {
         setSpecies('');
         setUser('');
       }
-      }
+    }
 
     useEffect(() => {
       const fetchData = async () => {
@@ -54,7 +54,7 @@ export default function PlantForm() {
         const response = await fetch(speciesUrl, getConfig);
         if (response.ok) {
           const data = await response.json();
-          setSpeciesList(data.name);
+          setSpeciesList(data);
         }
       };
 
@@ -71,16 +71,16 @@ export default function PlantForm() {
             <select
               required
               onChange={handleSpeciesChange}
-              name="name"
+              name="species_id"
               id="species_id"
               className="form-select"
-              value={name}
+              value={species_id}
             >
               <option value="">Type of plant</option>
-              {name.map((species) => {
+              {species.map((species) => {
                 return (
                   <option key={species.id} value={species.id}>
-                    {species.id}
+                    {species.name}
                   </option>
                 );
               })}
@@ -104,7 +104,7 @@ export default function PlantForm() {
             <label htmlFor="log">Description</label>
             <textarea
               onChange={handlePlantLogChange}
-              className="form-control"
+              value={log}
               id="log"
               rows="3"
               name="log"

@@ -98,6 +98,7 @@ const useToken = () => {
       const token = await getToken(baseUrl);
       setToken(token);
     };
+
     if (!token) {
       fetchToken();
     }
