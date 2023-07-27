@@ -19,6 +19,7 @@ import {
   SpeciesList,
   useUser,
   EditSpecies,
+  EditPlant
 } from "./imports";
 import "./App.css";
 
@@ -40,21 +41,22 @@ function App(props) {
       <Navbar />
       <div className="container">
         <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/logout" element={<Logout />} />
+          <Route path="/garden" element={<Dashboard />} />
+          <Route path ="/species/:species_id/edit" element={ <EditSpecies />}/>
+          <Route path ="/garden/:user_id/plant/:plant_id/edit" element={ <EditPlant />}/>
           <Route path="/gardens" element={<GardenList />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/" element={<MainPage />} />
           <Route path="/pest/:pest_id" element={<PestDetail />} />
           <Route path="/pest/add" element={<PestForm />} />
           <Route path="/pest/list" element={<PestList />} />
           <Route path="/species/add" element={<PlantSpeciesForm />} />
           <Route path="/species" element={<SpeciesList />} />
-          <Route path="/garden" element={<Dashboard />} />
           <Route path= "/garden/:user_id/plant" element={<PlantForm />} />
           <Route path="/garden/:user_id/plant/:plant_id" element={<PlantDetail />}/>
-          <Route path ="/species/:species_id/edit" element={ <EditSpecies />}/>
           <Route path="/search" element={<SearchList />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </div>
       <script

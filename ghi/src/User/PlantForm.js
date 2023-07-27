@@ -86,7 +86,7 @@ export default function PlantForm() {
               })}
             </select>
           </div>
-          <div>Plant not listed? Click here!</div>
+          <div>Species not listed? Click here!</div>
 
           <div className="form-floating mb-3">
             <input
