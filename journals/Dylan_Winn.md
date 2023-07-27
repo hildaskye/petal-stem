@@ -1,5 +1,8 @@
 ## 7/26
 Got front-end species list page working, and edited App.js imports with imports.js to make cleaner
+Got unit test done
+Helped others out with bugfixes on their endpoints
+Made back-end species detail endpoint for front-end stuff to go off of
 
 ## 7/25
 Got navbar automatically updating to show only login and sign up when logged out, and logout and the other options when signed in.

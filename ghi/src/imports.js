@@ -14,3 +14,4 @@ export { default as PlantDetail } from "./User/PlantDetail.js";
 export { default as PlantForm } from "./User/PlantForm.js";
 export { default as SpeciesList } from "./Community/SpeciesList.js";
 export { default as useUser } from "./auth forms/useUser.js";
+export { default as EditSpecies } from "./Community/EditSpecies.js";
