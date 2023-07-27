@@ -82,3 +82,12 @@ Dylan said she will add in the logout button, and the sign in button.
 
 Starting deployment. Most of backend deployment is done, got db deployed but api has not deployed correctly yet - getting panic error when trying to get logs for stemapi.
 Caleb came by and tried to help. Communicating with Rosheen on HMU to get this resolved. Hopefully tomorrow we can get the api deployed as well, and we can get the frontend deployed smoothly as well. Then the plan is to work on unit tests since that should be the last requirement for grading that we need.
+
+## 07/26/23
+
+Finished deployment with David and help from Rosheen. Our issue was resolved by deleting, remaking, and logging back in, which we did so it might be a caching issue. Got my unit test finished and passing, most of the group is finishing their unit tests as well.
+
+## 07/27/23
+
+The last unit test was finished this morning, there was an attribute error that was failing it, calling the wrong function name (get_all when it should've been list_all) that we were able to help our teammate with.
+Plan today is to fix bugs on our deployed site.
