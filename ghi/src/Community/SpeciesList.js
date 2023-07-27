@@ -1,0 +1,88 @@
+import React, { useEffect, useState } from "react";
+import useToken from "../auth forms/newindex.tsx";
+import { useNavigate } from "react-router-dom";
+
+function SpeciesList() {
+  const [species, setSpecies] = useState([]);
+  const { token } = useToken();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const url = `${process.env.REACT_APP_API_HOST}/api/species`;
+      const fetchConfig = {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const response = await fetch(url, fetchConfig);
+      if (response.ok) {
+        const data = await response.json();
+        setSpecies(data);
+      }
+    };
+    fetchData();
+  }, [token]);
+
+  const handleDelete = async (speciesId) => {
+    const url = `${process.env.REACT_APP_API_HOST}/api/species/${speciesId}`;
+    const fetchConfig = {
+      method: "delete",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      setSpecies((prevSpecies) =>
+        prevSpecies.filter((specie) => specie.id !== speciesId)
+      );
+    }
+  };
+
+  const handleEdit = (speciesId) => {
+    navigate(`/species/${speciesId}/edit`);
+  };
+
+  return (
+    <div>
+      <h1>Species</h1>
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {species.map((specie) => {
+            return (
+              <tr key={specie.id}>
+                <td>{specie.name}</td>
+                <td>
+                  <button
+                    class="btn btn-warning"
+                    onClick={() => handleEdit(specie.id)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    class="btn btn-danger"
+                    onClick={() => handleDelete(specie.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export default SpeciesList;
