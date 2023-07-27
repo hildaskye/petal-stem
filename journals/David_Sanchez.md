@@ -44,4 +44,8 @@ Melinda and I completely finished front end auth. Had some errors but figured th
 
 # 7/25
 
-This morning worked with Rosheen to figure out my docker env issue. Wasn't able to fix it but sort of figured out a way to run in locally. For now going to work with a partner to finish up code. Melinda and I are working on deployment.
+This morning worked with Rosheen to figure out my docker env issue. Wasn't able to fix it but sort of figured out a way to run in locally. For now going to work with a partner to finish up code. Melinda and I are working on deployment and finished most of my frontend components.
+
+# 7/26
+
+Finished deployment with Melinda and the help of Rosheen. Finished my unit test. Getting closer to completeing the project.

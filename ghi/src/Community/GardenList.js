@@ -22,7 +22,7 @@ function GardenList() {
       }
     };
     getData();
-  }, []);
+  }, [token]);
 
   const groupByUploaderName = {};
 

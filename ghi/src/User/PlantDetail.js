@@ -31,6 +31,30 @@ function PlantDetail(props) {
         return <div>Loading...</div>;
     }
 
+    const handleDelete = async () => {
+        try {
+            const deleteUrl = `${process.env.REACT_APP_API_HOST}/api/garden/${user_id}/plant/${plant_id}`;
+            const fetchConfig = {
+            method: "delete",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+            };
+
+            const response = await fetch(deleteUrl, fetchConfig);
+            if (response.ok) {
+            // Deletion successful, you can perform additional actions here if needed.
+            console.log("Plant deleted successfully");
+            } else {
+            console.log("Failed to delete the plant");
+            }
+        } catch (error) {
+            console.error("Error deleting the plant:", error);
+        }
+    };
+
+
     return (
         <div>
             <h1>Plant Details</h1>
@@ -51,6 +75,7 @@ function PlantDetail(props) {
                     <td>{plant.user_id}</td>
                     <td>{plant.species_id}</td>
                     <td>{plant.picture}</td>
+                    <td><button class="btn btn-danger" onClick={handleDelete}>Delete</button></td>
                 </tr>
             </tbody>
             </table>

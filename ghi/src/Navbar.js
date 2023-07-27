@@ -11,6 +11,7 @@ function Navbar(props) {
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
+
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item">
@@ -37,10 +38,13 @@ function Navbar(props) {
                                 <NavLink className="nav-link" to="/species/add">Add a plant species</NavLink>
                             </li>
                             <li className="nav-item">
+                                <NavLink className="nav-link" to="/species">Species List</NavLink>
+                            </li>
+                            <li className="nav-item">
                                 <NavLink className="nav-link" to="/garden/:user_id?">Dashboard</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/garden/${user_id}/plant/add">Add a Plant</NavLink>
+                                <NavLink className="nav-link" to="/garden/:user_id/plant">Add a Plant</NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/search">Search</NavLink>

@@ -80,5 +80,5 @@ Dylan said she will add in the logout button, and the sign in button.
 
 ## 07/25/23
 
-Starting deployment: rewatch CICD lecture with the notes.
-Installed cirrus
+Starting deployment. Most of backend deployment is done, got db deployed but api has not deployed correctly yet - getting panic error when trying to get logs for stemapi.
+Caleb came by and tried to help. Communicating with Rosheen on HMU to get this resolved. Hopefully tomorrow we can get the api deployed as well, and we can get the frontend deployed smoothly as well. Then the plan is to work on unit tests since that should be the last requirement for grading that we need.

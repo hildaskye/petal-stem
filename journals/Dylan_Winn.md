@@ -1,7 +1,13 @@
+## 7/26
+Got front-end species list page working, and edited App.js imports with imports.js to make cleaner
+Got unit test done
+Helped others out with bugfixes on their endpoints
+Made back-end species detail endpoint for front-end stuff to go off of
+
 ## 7/25
 Got navbar automatically updating to show only login and sign up when logged out, and logout and the other options when signed in.
 Incidentally, also created logout function
-Got plant detail page working
+Got plant detail page working with David
 Created back-end endpoint to list species with Cindy
 
 ## 7/24
@@ -30,7 +36,6 @@ Didn't have much time to code, just worked on watching FastAPI videos and coordi
 
 ## 7/11
 Watched FastAPI videos and planned with team
-
 
 ## 7/10
 Worked with team on VS Code Share to get tables made for users, locations, cycles, species, personal plants, and pests!

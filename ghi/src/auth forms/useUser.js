@@ -5,15 +5,12 @@ const useUser = (token) => {
 
   useEffect(() => {
     const getUser = async () => {
-      const res = await fetch(
-        `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}/token`,
-        {
-          credentials: "include",
-          headers: {
-            Authorization: `bearer ${token}`,
-          },
-        }
-      );
+      const res = await fetch(`${process.env.REACT_APP_API_HOST}/token`, {
+        credentials: "include",
+        headers: {
+          Authorization: `bearer ${token}`,
+        },
+      });
       const result = await res.json();
       setUser(result.account);
     };

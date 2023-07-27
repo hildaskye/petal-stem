@@ -3,9 +3,6 @@ from authenticator import authenticator
 from typing import Union, List
 from queries.species_list import SpeciesList, Error, SpeciesOut
 
-PROJECT_ID = "bababoo"
-PRIVATE_KEY = "wheeeeeeeeee"
-
 router = APIRouter()
 
 

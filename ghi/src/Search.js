@@ -12,7 +12,7 @@ function SearchList() {
 
     const handleSearchSubmit = async (event) => {
         event.preventDefault();
-        const url = `${process.env.REACT_APP_API_HOST}/api/search/${term}/`;
+        const url = `${process.env.REACT_APP_API_HOST}/api/search/${term}`;
         const fetchConfig = {
             method: "get",
             headers: {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
 import useToken from "../auth forms/newindex.tsx";
 
 export default function PlantSpeciesForm() {
@@ -7,13 +7,14 @@ export default function PlantSpeciesForm() {
     const [cycle_type, setLifecycle] = useState('');
     const [picture, setPicture] = useState('');
     const [user_id, setUser] = useState('');
-    const { token } = useToken();
 
     const handleSpeciesChange = (e) => {setSpecies(e.target.value)};
     const handleLocationChange = (e) => {setLocation(e.target.value)};
     const handleLifecycleChange = (e) => {setLifecycle(e.target.value)};
     const handlePictureChange = (e) => {setPicture(e.target.value)};
     const handleUserChange = (e) => {setUser(e.target.value)};
+    const [user, setUser] = useState("");
+    const { token } = useToken();
 
     const handleSubmit = async (e) => {
       e.preventDefault();
