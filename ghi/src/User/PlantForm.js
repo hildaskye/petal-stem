@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useToken from "../auth forms/newindex.tsx";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function PlantForm() {
     const [species, setSpeciesList] = useState([]);
@@ -9,6 +10,7 @@ export default function PlantForm() {
     const [species_id, setSpecies] = useState('');
     const { token } = useToken();
     const { user_id } = useParams();
+    const navigate = useNavigate();
 
     const handlePlantNicknameChange = (e) => {setPlantNickname(e.target.value)};
     const handlePlantLogChange = (e) => {setPlantLog(e.target.value)};
@@ -37,6 +39,7 @@ export default function PlantForm() {
         setPlantNickname('');
         setPlantLog('');
         setSpecies('');
+        navigate(`/garden/${user_id}`);
       }
     }
 

@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import useToken from "../auth forms/newindex.tsx";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function EditSpecies() {
+function EditSpecies({ user }) {
   const [name, setName] = useState("");
   const [location_type, setLocation] = useState("");
   const [cycle_type, setCycleType] = useState("");
   const [picture, setPicture] = useState("");
-  const [user_id, setUser] = useState("");
   const { token } = useToken();
   const { species_id } = useParams();
+  const navigate = useNavigate();
 
   const handleNameChange = (e) => {
     const value = e.target.value;
@@ -27,10 +28,6 @@ function EditSpecies() {
     const value = e.target.value;
     setPicture(value);
   };
-  const handleUserChange = (e) => {
-    const value = e.target.value;
-    setUser(value);
-  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -39,7 +36,7 @@ function EditSpecies() {
     species.picture = picture;
     species.location_type = location_type;
     species.cycle_type = cycle_type;
-    species.user_id = user_id;
+    species.user_id = user.id;
 
     const url = `${process.env.REACT_APP_API_HOST}/api/species/${species_id}`;
     const fetchConfig = {
@@ -58,10 +55,14 @@ function EditSpecies() {
       setPicture(species.picture);
       setLocation(species.location_type);
       setCycleType(species.cycle_type);
-      setUser(species.user_id);
+      navigate(`/species`);
     }
   };
+
   useEffect(() => {
+    console.log("Fetching species data...");
+    console.log("Token:", token);
+    console.log("Species ID:", species_id);
     if (token) {
       const fetchData = async () => {
         const response = await fetch(
@@ -79,12 +80,11 @@ function EditSpecies() {
           setPicture(data.picture);
           setLocation(data.location_type);
           setCycleType(data.cycle_type);
-          setUser(data.user_id);
         }
       };
       fetchData();
     }
-  }, [token, species_id]);
+  }, [token, species_id]); // <-- Include species_id in the dependency array
 
   return (
     <div className="row">
@@ -102,7 +102,6 @@ function EditSpecies() {
               className="form-control"
             />
           </div>
-
           <div className="form-floating mb-3">
             <select
               required
@@ -113,12 +112,11 @@ function EditSpecies() {
               value={location_type}
               aria-label=".form-select-sm example"
             >
-              <option selected>Location of plant</option>
+              <option defaultValue>Location of plant</option>
               <option value="Indoor">Indoor</option>
-              <option value="Outdoor">Outdoors</option>
+              <option value="Outdoor">Outdoor</option>
             </select>
           </div>
-
           <div className="form-floating mb-3">
             <select
               required
@@ -129,14 +127,13 @@ function EditSpecies() {
               value={cycle_type}
               aria-label=".form-select-sm example"
             >
-              <option selected>Lifecycle</option>
+              <option defaultValue>Lifecycle</option>
               <option value="Annual">Annual</option>
               <option value="Biennial">Biennial</option>
               <option value="Perennial">Perennial</option>
               <option value="Other">Other</option>
             </select>
           </div>
-
           <div className="form-floating mb-3">
             <input
               onChange={handlePictureChange}
@@ -145,18 +142,6 @@ function EditSpecies() {
               required
               type="text"
               id="picture"
-              className="form-control"
-            />
-          </div>
-
-          <div className="form-floating mb-3">
-            <input
-              onChange={handleUserChange}
-              value={user_id}
-              placeholder="user id"
-              required
-              type="text"
-              id="user"
               className="form-control"
             />
           </div>

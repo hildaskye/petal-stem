@@ -49,3 +49,7 @@ This morning worked with Rosheen to figure out my docker env issue. Wasn't able 
 # 7/26
 
 Finished deployment with Melinda and the help of Rosheen. Finished my unit test. Getting closer to completeing the project.
+
+# 7/27
+
+Finished my unit test and final frontend component. Melinda and I working on the deployed version bugs.

@@ -1,77 +1,86 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import useToken from "../auth forms/newindex.tsx";
+import { useNavigate } from "react-router-dom";
 
-export default function PestForm() {
-  const [pest, setPest] = useState('');
-  const [pestInfo, setPestInfo] = useState('');
+export default function PestForm({ user }) {
+    const [name, setPest] = useState('');
+    const [picture, setPicture] = useState('');
+    const [log, setLog] = useState('');
+    const { token } = useToken();
+    const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("${process.env.REACT_APP_API_HOST}/api/pest");
-      const data = await response.json();
-      setPest(data.pest);
-    };
+    const handlePestChange = (e) => {setPest(e.target.value)};
+    const handlePictureChange = (e) => {setPicture(e.target.value)};
+    const handleLogChange = (e) => {setLog(e.target.value)};
 
-    fetchData();
-  }, []);
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      const data = {};
+      data.name = name;
+      data.picture = picture;
+      data.log = log;
+      data.user_id = user.id;
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = {
-      pest,
-      pestInfo,
-    };
+      const pestUrl = `${process.env.REACT_APP_API_HOST}/api/pest`;
+      const fetchConfig = {
+        method: "post",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
 
-    const plantUrl = "${process.env.REACT_APP_API_HOST}/api/pest";
-    const fetchConfig = {
-      method: "post",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    const response = await fetch(plantUrl, fetchConfig);
+      const response = await fetch(pestUrl, fetchConfig);
 
-    if (response.ok) {
-      setPest("");
-      setPestInfo("");
-    }
-  };
+      if (response.ok) {
+        setPest('');
+        setPicture('');
+        setLog('');
+        navigate(`/pest/list`)
+      }
+      }
 
-  const handlePestChange = (e) => {
-    const value = e.target.value;
-    setPest(value);
-  };
-  const handlePestInfoChange = (e) => {
-    const value = e.target.value;
-    setPestInfo(value);
-  };
 
   return (
     <div className="row">
       <div className="offset-3 col-6">
-        <h1>Add a pest!</h1>
+        <h1>Add a new type of pest!</h1>
         <form onSubmit={handleSubmit} id="add-pest-form">
           <div className="form-floating mb-3">
             <input
               onChange={handlePestChange}
-              value={pest}
-              placeholder="Name of pest"
+              value={name}
+              placeholder="Pest name"
               required
               type="text"
-              id="pest"
+              id="name"
               className="form-control"
             />
           </div>
-          <div className="mb-3">
-            <label htmlFor="pestInfo">Description</label>
-            <textarea
-              onChange={handlePestInfoChange}
+
+          <div className="form-floating mb-3">
+            <input
+              onChange={handlePictureChange}
+              value={picture}
+              placeholder="Add a picture of the pest"
+              required
+              type="text"
+              id="picture"
               className="form-control"
-              id="pestInfo"
-              rows="3"
-              name="pestInfo"
+            />
+          </div>
+
+          <div className="form-floating mb-3">
+            <input
+              onChange={handleLogChange}
+              value={log}
+              placeholder="Any useful info about this pest?"
+              required
+              type="text"
+              id="log"
               className="form-control"
-            ></textarea>
+            />
           </div>
           <button className="btn btn-primary">Create!</button>
         </form>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import useToken from "../auth forms/newindex.tsx";
 import { useParams } from "react-router-dom";
 
-export default function PlantForm() {
+export default function PlantEdit() {
   const [nickname, setPlantNickname] = useState("");
   const [log, setPlantLog] = useState("");
   const [species, setSpecies] = useState("");

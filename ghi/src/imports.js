@@ -16,3 +16,4 @@ export { default as SpeciesList } from "./Community/SpeciesList.js";
 export { default as useUser } from "./auth forms/useUser.js";
 export { default as EditSpecies } from "./Community/EditSpecies.js";
 export { default as EditPlant } from "./User/EditPlant.js";
+export { default as EditPest } from "./Community/EditPest.js";
