@@ -34,7 +34,6 @@ export default function Dashboard() {
     <>
       <div>
         <h1>Your garden</h1>
-        {console.log(plants)}
         {plants.length > 0 ? (
           <table className="table table-striped">
             <thead>

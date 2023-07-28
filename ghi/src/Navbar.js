@@ -3,7 +3,6 @@ import useToken from "./auth forms/newindex.tsx";
 
 function Navbar({ user }) {
   const { token } = useToken();
-  console.log("user.id=", user.id);
 
   return (
     <>
@@ -48,12 +47,12 @@ function Navbar({ user }) {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/pest">
+                  <NavLink className="nav-link" to="/pest/add">
                     Add a pest
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/pest">
+                  <NavLink className="nav-link" to="/pest/list">
                     Pest List
                   </NavLink>
                 </li>
