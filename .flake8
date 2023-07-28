@@ -1,4 +1,4 @@
 [flake8]
 exclude = ghi,docs,journals,api/migrations
 
-ignore = E501, E302, E266
+ignore = E501, E302, E266, E501, E302
