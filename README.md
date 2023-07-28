@@ -1,173 +1,92 @@
-# Module3 Project Gamma
+# Petal & Stem
 
-## Getting started
+- Melinda Tran
+- Cindy Lam
+- Dylan Winn
+- David Sanchez
+- Alan Y.C. Cheng
 
-You have a project repository, now what? The next section
-lists all of the deliverables that are due at the end of the
-week. Below is some guidance for getting started on the
-tasks for this week.
+Petal & Stem - Your one-stop shop for Plant and Pest information.
 
-## Install Extensions
+## Design
 
-- Prettier: <https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode>
-- Black Formatter: <https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter>
+- [API design](docs/apis.md)
+- [Data model](docs/data-model.md)
+- [GHI](docs/ghi.md)
 
-## Deliverables
+## Intended market
 
-- [ ] Wire-frame diagrams
-- [ ] API documentation
-- [ ] Project is deployed to Caprover (BE, DB) & GitLab-pages (FE)
-- [ ] GitLab issue board is setup and in use (or project management tool of choice)
-- [ ] Journals
+Our intended target audience is for gardening enthusiasts.
 
-## Project layout
+The website includes user-generated information on plant species, individual plant that the user would have in his/her online garden page, and pest information useful for gardening.
 
-The layout of the project is just like all of the projects
-you did with `docker-compose` in module #2. You will create
-a directory in the root of the repository for each service
-that you add to your project just like those previous
-projects were setup.
+## Functionality
 
-### Directories
+- New users will first have to sign up with a new account to access the website
 
-Several directories have been added to your project. The
-directories `docs` and `journals` are places for you and
-your team-mates to, respectively, put any documentation
-about your project that you create and to put your
-project-journal entries. See the _README.md_ file in each
-directory for more info.
+- Registered users will have to login to access information of the site
 
-The other directories, `ghi` and `api`, are services, that
-you can start building off of.
+- After logging in, users will be able to access the site through two streams - Plant Information and Pest Information
+  - In Plant information, users will first have to create that particular plant species information, and then users can then create individual plants that the users can add to their individual garden page
+  - In Pest information, users can create specific pest and generate useful pest information to share with other users on the website
 
-Inside of `ghi` is a minimal React app that has an "under
-construction" page. It is setup similarly to all of the
-other React projects that you have worked on.
+## Step-by-step Instructions to Run the Project
 
-Inside of `api` is a minimal FastAPI application.
-"Where are all the files?" you might ask? Well, the
-`main.py` file is the whole thing, and go take look inside
-of it... There's not even much in there..., hmm? That is
-FastAPI, we'll learn more about it in the coming days. Can
-you figure out what this little web-application does even
-though you haven't learned about FastAPI yet?
+To use this application on the local machine, please follow these steps:
 
-Also in `api` is a directory for your migrations.
-If you choose to use PostgreSQL, then you'll want to use
-migrations to control your database. Unlike Django, where
-migrations were automatically created for you, you'll write
-yours by hand using DDL. Don't worry about not knowing what
-DDL means; we have you covered. There's a sample migration
-in there that creates two tables so you can see what they
-look like.
+1. Open Terminal in your computer
 
-The Dockerfile and Dockerfile.dev run your migrations
-for you automatically.
+2. Go to your folder where you want to save this program (replace the path with the path to your folder destination):
 
-### Other files
+```
+cd {path to your folder}
+```
 
-The following project files have been created as a minimal
-starting point. Please follow the guidance for each one for
-a most successful project.
+3. Run the following command in your Terminal to download the code of this program to your computer via the "Clone with HTTPS" method:
 
-- `docker-compose.yaml`: there isn't much in here, just a
-  **really** simple UI and FastAPI service. Add services
-  (like a database) to this file as you did with previous
-  projects in module #2.
-- `.gitlab-ci.yml`: This is your "ci/cd" file where you will
-  configure automated unit tests, code quality checks, and
-  the building and deployment of your production system.
-  Currently, all it does is deploy an "under construction"
-  page to your production UI on GitLab and a sample backend
-  to CapRover. We will learn much more about this file.
-- `.gitignore`: This is a file that prevents unwanted files
-  from getting added to your repository, files like
-  `pyc` files, `__pycache__`, etc. We've set it up so that
-  it has a good default configuration for Python projects.
-- `.env.sample`: This file is a template to copy when
-  creating environment variables for your team. Create a
-  copy called `.env` and put your own passwords in here
-  without fear of it being committed to git (see `.env`
-  listed in `.gitignore`). You can also put team related
-  environment variables in here, things like api and signing
-  keys that shouldn't be committed; these should be
-  duplicated in your deployed environments.
+```
+git clone https://gitlab.com/petal-stem/petal-stem
+```
 
-## How to complete the initial deploy
+4. Dive into the newly downloaded program folder:
 
-There will be further guidance on completing the initial
-deployment, but it just consists of these steps:
+```
+cd petal-stem
+```
 
-### Setup GitLab repo/project
+5. Run this command:
 
-- make sure this project is in a group. If it isn't, stop
-  now and move it to a GitLab group
-- remove the fork relationship: In GitLab go to:
+```
+docker-compose down --volumes
+```
 
-  Settings -> General -> Advanced -> Remove fork relationship
 
-- add these GitLab CI/CD variables:
-  - PUBLIC_URL : this is your gitlab pages URL
-  - REACT_APP_API_HOST: enter "blank" for now
+6. Create a new database (Docker Volume) with the name "beta-data" in your local computer for this program to store data in:
 
-#### Your GitLab pages URL
+```
+docker volume create postgres-data
+```
 
-You can't find this in GitLab until after you've done a deploy
-but you can figure it out yourself from your GitLab project URL.
+7. Create the blueprints (Docker Images) for the program:
 
-If this is your project URL
+```
+docker-compose build --no-cache
+```
 
-https://gitlab.com/GROUP_NAME/PROJECT_NAME
+8. Create the isolated environments (Docker Containers) for the program:
 
-then your GitLab pages URL will be
+```
+docker-compose up
+```
 
-https://GROUP_NAME.gitlab.io/PROJECT_NAME
+9. Exit the container's CLI, and use Petal & Stem's product.
 
-### Initialize CapRover
 
-1. Attain IP address and domain from an instructor
-1. Follow the steps in the CD Cookbook in Learn.
 
-### Update GitLab CI/CD variables
-
-Copy the service URL for your CapRover service and then paste
-that into the value for the REACT_APP_API_HOST CI/CD variable
-in GitLab.
-
-### Deploy it
-
-Merge a change into main to kick off the initial deploy. Once the build pipeline
-finishes you should be able to see an "under construction" page on your GitLab
-pages site.
-
-glv-cloud-cli deploy -a marptapi -i registry.gitlab.com/petal-stem/petal-stem/api:latest -e SIGNING_KEY=meow -e DATABASE_URL=postgresql://petal:stem@postgres/vase@mar-9-pt-vase-service.default.svc.cluster.local/postgres -e CORS_HOST=https://petal-stem.gitlab.io
-
-      DATABASE_URL: postgresql://petal:stem@postgres/vase
-      SIGNING_KEY: meow
-
-image - container reg - latest : registry.gitlab.com/petal-stem/petal-stem/api:latest
-
-db url : mar-9-pt-vase-service.default.svc.cluster.local
-
-glv-cloud-cli deploy -a marptapi -i registry.gitlab.com/petal-stem/petal-stem/api:latest -e SIGNING_KEY=meow -e DATABASE_URL=postgresql://petal:stem@mar-9-pt-vase-service.default.svc.cluster.local/postgres -e CORS_HOST=https://petal-stem.gitlab.io
-
-1 - We may have deployed incorrectly.after deploying the app we are getting a 503 when we are checking the FASTAPI part of deployment. We think that we might have wrote a wrong code when executing the final command of deployment.
-
-<<<<<<< HEAD
-This is what we wrote:
-glv-cloud-cli deploy -a marptapi -i registry.gitlab.com/petal-stem/petal-stem/api:latest -e SIGNING_KEY=meow -e DATABASE_URL=postgresql://petal:stem@postgres/vase@mar-9-pt-vase-service.default.svc.cluster.local/postgres -e CORS_HOST=https://petal-stem.gitlab.io
-
-This is what we think we should've have written:
-glv-cloud-cli deploy -a stemapi -i registry.gitlab.com/petal-stem/petal-stem/api:latest -e SIGNING_KEY=meow -e DATABASE_URL=postgresql://petal:stem@mar-9-pt-vase-service.default.svc.cluster.local/postgres -e CORS_HOST=https://petal-stem.gitlab.io
-
-mar-9-pt-vase-service.default.svc.cluster.local
-=======
-This is what we wrote: glv-cloud-cli deploy -a marptapi -i registry.gitlab.com/petal-stem/petal-stem/api:latest -e SIGNING_KEY=meow -e DATABASE_URL=postgresql://petal:stem@postgres/vase@mar-9-pt-vase-service.default.svc.cluster.local/postgres -e CORS_HOST=https://petal-stem.gitlab.io
-
-This is what we think we should've have written: glv-cloud-cli deploy -a stemapi -i registry.gitlab.com/petal-stem/petal-stem/api:latest -e SIGNING_KEY=meow -e DATABASE_URL=postgresql://petal:stem@mar-9-pt-vase-service.default.svc.cluster.local/postgres -e CORS_HOST=https://petal-stem.gitlab.io
->>>>>>> main
-
-We don't know what next steps are or if there is a quick fix. Please help asap! <3
-
-2 - Room 2, with David
-3 - Following along in @Rosheen's notion notes and lecture. Not sure if there is a way to delete the deployment, or maybe it's another issue.
+<!-- 1. Clone repository down
+2. CD into the new project directory
+3. Run `docker-compose down --volumes`
+4. Run `docker volume create postgres-data`
+5. Run `docker-compose build --no-cache`
+6. Run `docker-compose up`
+7. Exit the container's CLI, and enjoy Petal & Stem's product! -->
