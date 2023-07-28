@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useToken from "../auth forms/newindex.tsx";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function PlantEdit() {
   const [nickname, setPlantNickname] = useState("");
@@ -8,6 +9,8 @@ export default function PlantEdit() {
   const [species, setSpecies] = useState("");
   const { token } = useToken();
   const { user_id, plant_id } = useParams();
+  const navigate = useNavigate();
+
 
   const handlePlantNicknameChange = (e) => {
     setPlantNickname(e.target.value);
@@ -41,7 +44,8 @@ export default function PlantEdit() {
       setPlantNickname("");
       setPlantLog("");
       setSpecies("");
-      console.log("PUT worked successfully!")
+      navigate(`/garden/${user_id}`)
+
     }
   };
 

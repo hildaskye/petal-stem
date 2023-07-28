@@ -1,6 +1,10 @@
+## 7/28
+Added edit and delete buttons to Dashboard using links/pages that already existed by David
+
 ## 7/27
 Helped David on screenshare and VS Code Share for Edit Plant function
 Same with Cindy on getting Navbar and Dashboard links working as expected
+Helped everyone with bugfixes on endpoints
 
 ## 7/26
 Got front-end species list page working, and edited App.js imports with imports.js to make cleaner
