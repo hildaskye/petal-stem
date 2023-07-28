@@ -13,7 +13,7 @@ const LoginForm = () => {
     console.log(`username: ${username} password: ${password}`);
     login(username, password);
     e.target.reset();
-    navigate("/garden");
+    navigate("/gardens");
   };
 
   return (
