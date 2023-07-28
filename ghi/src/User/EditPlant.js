@@ -91,7 +91,7 @@ export default function PlantEdit() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="log">Description</label>
+            <label htmlFor="log">Log</label>
             <textarea
               onChange={handlePlantLogChange}
               value={log}

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useToken from "../auth forms/newindex.tsx";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 export default function PlantForm() {
     const [species, setSpeciesList] = useState([]);
@@ -88,8 +87,9 @@ export default function PlantForm() {
               })}
             </select>
           </div>
-          <div>Plant not listed? Click here!</div>
-
+          <div>
+            <Link to={`/species/add`}> Species not listed? Click here!</Link>
+          </div>
           <div className="form-floating mb-3">
             <input
               onChange={handlePlantNicknameChange}

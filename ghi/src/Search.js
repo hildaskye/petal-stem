@@ -65,7 +65,7 @@ function SearchList() {
                         </tbody>
                     </table>
                 ) : (
-                    <p>No results found.</p>
+                   <p>No results found.</p>
                 )}
             </div>
         </>

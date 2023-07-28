@@ -61,7 +61,7 @@ export default function Dashboard() {
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Picture</th>
+                <th>Log</th>
               </tr>
             </thead>
             <tbody>
@@ -69,7 +69,7 @@ export default function Dashboard() {
                 return (
                   <tr key={personal_plant.id}>
                     <td>{personal_plant.nickname}</td>
-                    <td>{personal_plant.picture}</td>
+                    <td>{personal_plant.log}</td>
                     <td>
                       <button
                         className="btn btn-warning"
