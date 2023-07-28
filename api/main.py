@@ -4,20 +4,20 @@ from fastapi.middleware.cors import CORSMiddleware
 from routers import (
     accounts,
     search,
-    ## PLANTS
+    # PLANTS
     garden,
     add_plant,
     plant_edit,
     plant_delete,
     plant_detail,
     community_page,
-    ## SPECIES
+    # SPECIES
     add_species,
     edit_species,
     delete_species,
     species_detail,
     species_list,
-    ## PESTS
+    # PESTS
     pest_add,
     edit_pest,
     pest_delete,
@@ -30,20 +30,20 @@ app = FastAPI()
 app.include_router(authenticator.router)
 app.include_router(accounts.router)
 app.include_router(search.router)
-## PLANTS
+# PLANTS
 app.include_router(garden.router)
 app.include_router(add_plant.router)
 app.include_router(plant_edit.router)
 app.include_router(plant_delete.router)
 app.include_router(plant_detail.router)
 app.include_router(community_page.router)
-## SPECIES
+# SPECIES
 app.include_router(add_species.router)
 app.include_router(edit_species.router)
 app.include_router(delete_species.router)
 app.include_router(species_detail.router)
 app.include_router(species_list.router)
-## PESTS
+# PESTS
 app.include_router(pest_add.router)
 app.include_router(edit_pest.router)
 app.include_router(pest_delete.router)

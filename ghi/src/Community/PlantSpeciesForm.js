@@ -3,48 +3,55 @@ import useToken from "../auth forms/newindex.tsx";
 import { useNavigate } from "react-router-dom";
 
 export default function PlantSpeciesForm({ user }) {
-    const [name, setSpecies] = useState('');
-    const [location_type, setLocation] = useState('');
-    const [cycle_type, setLifecycle] = useState('');
-    const [picture, setPicture] = useState('');
-    const { token } = useToken();
-    const navigate = useNavigate();
+  const [name, setSpecies] = useState("");
+  const [location_type, setLocation] = useState("");
+  const [cycle_type, setLifecycle] = useState("");
+  const [picture, setPicture] = useState("");
+  const { token } = useToken();
+  const navigate = useNavigate();
 
-    const handleSpeciesChange = (e) => {setSpecies(e.target.value)};
-    const handleLocationChange = (e) => {setLocation(e.target.value)};
-    const handleLifecycleChange = (e) => {setLifecycle(e.target.value)};
-    const handlePictureChange = (e) => {setPicture(e.target.value)};
+  const handleSpeciesChange = (e) => {
+    setSpecies(e.target.value);
+  };
+  const handleLocationChange = (e) => {
+    setLocation(e.target.value);
+  };
+  const handleLifecycleChange = (e) => {
+    setLifecycle(e.target.value);
+  };
+  const handlePictureChange = (e) => {
+    setPicture(e.target.value);
+  };
 
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      const data = {};
-      data.name = name;
-      data.location_type = location_type;
-      data.cycle_type = cycle_type;
-      data.picture = picture;
-      data.user_id = user.id;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = {};
+    data.name = name;
+    data.location_type = location_type;
+    data.cycle_type = cycle_type;
+    data.picture = picture;
+    data.user_id = user.id;
 
-      const speciesUrl = `${process.env.REACT_APP_API_HOST}/api/species`;
-      const fetchConfig = {
-        method: "post",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
+    const speciesUrl = `${process.env.REACT_APP_API_HOST}/api/species`;
+    const fetchConfig = {
+      method: "post",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
 
-      const response = await fetch(speciesUrl, fetchConfig);
+    const response = await fetch(speciesUrl, fetchConfig);
 
-      if (response.ok) {
-        setSpecies('');
-        setLocation('');
-        setLifecycle('');
-        setPicture('');
-        navigate(`/species`);
-      }
-      }
-
+    if (response.ok) {
+      setSpecies("");
+      setLocation("");
+      setLifecycle("");
+      setPicture("");
+      navigate(`/species`);
+    }
+  };
 
   return (
     <div className="row">
@@ -74,8 +81,8 @@ export default function PlantSpeciesForm({ user }) {
               aria-label=".form-select-sm example"
             >
               <option defaultValue>Location of plant</option>
-              <option value="Indoor">Indoors</option>
-              <option value="Outdoor">Outdoors</option>
+              <option value="Indoor">Indoor</option>
+              <option value="Outdoor">Outdoor</option>
             </select>
           </div>
 

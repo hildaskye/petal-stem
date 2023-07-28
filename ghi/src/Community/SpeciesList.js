@@ -17,6 +17,7 @@ function SpeciesList() {
           Authorization: `Bearer ${token}`,
         },
       };
+      console.log("TOKEN", token);
       const response = await fetch(url, fetchConfig);
       if (response.ok) {
         const data = await response.json();

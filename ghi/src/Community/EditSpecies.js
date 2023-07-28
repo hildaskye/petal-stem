@@ -55,11 +55,14 @@ function EditSpecies({ user }) {
       setPicture(species.picture);
       setLocation(species.location_type);
       setCycleType(species.cycle_type);
-      navigate(`/species`)
+      navigate(`/species`);
     }
   };
 
   useEffect(() => {
+    console.log("Fetching species data...");
+    console.log("Token:", token);
+    console.log("Species ID:", species_id);
     if (token) {
       const fetchData = async () => {
         const response = await fetch(
@@ -81,7 +84,7 @@ function EditSpecies({ user }) {
       };
       fetchData();
     }
-  }, [token, species_id]);
+  }, [token, species_id]); // <-- Include species_id in the dependency array
 
   return (
     <div className="row">
@@ -111,7 +114,7 @@ function EditSpecies({ user }) {
             >
               <option defaultValue>Location of plant</option>
               <option value="Indoor">Indoor</option>
-              <option value="Outdoor">Outdoors</option>
+              <option value="Outdoor">Outdoor</option>
             </select>
           </div>
           <div className="form-floating mb-3">
