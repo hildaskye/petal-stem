@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 
-export default function MainPage({ conferences }) {
+import "./App.css";
+import OwlDemo from "./owldemo";
+
+export default function MainPage({}) {
   return (
-    <div className="px-4 py-5 my-5 text-center">
-      <h1 className="display-5 fw-bold">Petal & Stem</h1>
-      <div className="col-lg-6 mx-auto">
-        <p className="lead mb-4">
-          (carousel of plant pictures)
-        </p>
+    <>
+      <div className="px-4 py-5 my-5 text-center">
+        <h1 className="display-5 fw-bold">Petal & Stem</h1>
       </div>
-    </div>
+
+      <div className="App">
+        <OwlDemo />
+      </div>
+    </>
   );
 }

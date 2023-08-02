@@ -22,7 +22,10 @@ import {
   EditPlant,
   EditPest,
 } from "./imports";
+import logo from "./logo.svg";
 import "./App.css";
+import Owldemo1 from "./owldemo1";
+import OwlDemo from "./owldemo";
 
 function App(props) {
   const { token } = useToken();
@@ -58,7 +61,7 @@ function App(props) {
             path="/garden/:user_id/plant/:plant_id"
             element={<PlantDetail />}
           />
-          {/* SPECIES*/}
+          {/* SPECIES */}
           <Route
             path="/species/add"
             element={<PlantSpeciesForm user={user} />}
