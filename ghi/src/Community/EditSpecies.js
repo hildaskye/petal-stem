@@ -145,7 +145,7 @@ function EditSpecies({ user }) {
               className="form-control"
             />
           </div>
-          <button className="btn btn-primary">Edit</button>
+          <button className="btn btn-primary">Confirm!</button>
         </form>
       </div>
     </div>

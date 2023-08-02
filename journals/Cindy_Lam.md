@@ -45,3 +45,6 @@ Worked on pulling up a species list for a dropdown menu. Completed that then mov
 
 # 7/27
 Continued to work on figuring out how to retrieve user id with Rosheen and Paul. Investigated as far as going into the backend. Then worked with Dylan to go over our codes. Finally figured out how to retrieve user id with her help! :D Finished unit tests.
+
+# 7/28
+Having issues with the deployed site. But we ran the reset and now it shows the updated code. Everything is pretty much set and ready.

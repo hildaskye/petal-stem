@@ -99,7 +99,7 @@ export default function PlantEdit() {
           </div>
           {/* Add a hidden input field to store the species_id */}
           <input type="hidden" name="species_id" value={species} />
-          <button className="btn btn-primary">Edit!</button>
+          <button className="btn btn-primary">Confirm!</button>
         </form>
       </div>
     </div>

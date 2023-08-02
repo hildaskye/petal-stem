@@ -32,14 +32,7 @@ function SearchList() {
         <>
             <div className="row">
                 <div className="offset-3 col-6">
-                    <div className="shadow p-4 mt-4">
-                        <form onSubmit={handleSearchSubmit} id="create-search">
-                            <div className="form-floating mb-3">
-                                <input onChange={handleTermChange} placeholder="search" required type="text" className="form-control" value={term} />
-                            </div>
-                            <button className="btn btn-primary">Search!</button>
-                        </form>
-                    </div>
+                  docker-c
                 </div>
             </div>
             <div>
