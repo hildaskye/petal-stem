@@ -22,9 +22,6 @@ def test_get_all_accounts():
     app.dependency_overrides[AccountRepository] = EmptyAccountRepository
     response = client.get("/api/accounts")
     app.dependency_overrides = {}
-    # ACT
-
-    # ASSERT
 
     assert response.status_code == 200
     assert response.json() == [

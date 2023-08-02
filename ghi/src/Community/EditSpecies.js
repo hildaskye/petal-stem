@@ -63,6 +63,7 @@ function EditSpecies({ user }) {
     console.log("Fetching species data...");
     console.log("Token:", token);
     console.log("Species ID:", species_id);
+
     if (token) {
       const fetchData = async () => {
         const response = await fetch(
@@ -74,6 +75,7 @@ function EditSpecies({ user }) {
             method: "get",
           }
         );
+
         if (response.ok) {
           const data = await response.json();
           setName(data.name);
@@ -84,7 +86,7 @@ function EditSpecies({ user }) {
       };
       fetchData();
     }
-  }, [token, species_id]); // <-- Include species_id in the dependency array
+  }, [token, species_id]);
 
   return (
     <div className="row">

@@ -20,10 +20,9 @@ import {
   useUser,
   EditSpecies,
   EditPlant,
-  EditPest
+  EditPest,
 } from "./imports";
 import "./App.css";
-
 
 function App(props) {
   const { token } = useToken();
@@ -50,16 +49,31 @@ function App(props) {
           {/* PLANTS */}
           <Route path="/garden/:user_id?" element={<Dashboard />} />
           <Route path="/gardens" element={<GardenList />} />
-          <Route path= "/garden/:user_id/plant/add" element={<PlantForm />} />
-          <Route path ="/garden/:user_id/plant/:plant_id/edit" element={ <EditPlant />}/>
-          <Route path="/garden/:user_id/plant/:plant_id" element={<PlantDetail />}/>
-          {/* SPECIES */}
-          <Route path="/species/add" element={<PlantSpeciesForm user={user} />} />
-          <Route path ="/species/:species_id/edit" element={ <EditSpecies user={user} />}/>
+          <Route path="/garden/:user_id/plant/add" element={<PlantForm />} />
+          <Route
+            path="/garden/:user_id/plant/:plant_id/edit"
+            element={<EditPlant />}
+          />
+          <Route
+            path="/garden/:user_id/plant/:plant_id"
+            element={<PlantDetail />}
+          />
+          {/* SPECIES*/}
+          <Route
+            path="/species/add"
+            element={<PlantSpeciesForm user={user} />}
+          />
+          <Route
+            path="/species/:species_id/edit"
+            element={<EditSpecies user={user} />}
+          />
           <Route path="/species" element={<SpeciesList />} />
           {/* PESTS */}
           <Route path="/pest/add" element={<PestForm user={user} />} />
-          <Route path="/pest/:pest_id/edit" element={<EditPest user={user} />} />
+          <Route
+            path="/pest/:pest_id/edit"
+            element={<EditPest user={user} />}
+          />
           <Route path="/pest/:pest_id" element={<PestDetail />} />
           <Route path="/pest/list" element={<PestList />} />
         </Routes>
@@ -75,7 +89,7 @@ function App(props) {
         crossOrigin="anonymous"
       />
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" />
-  </>
+    </>
   );
 }
 
