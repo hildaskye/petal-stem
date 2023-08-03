@@ -94,3 +94,10 @@ Plan today is to fix bugs on our deployed site.
 Finished all my front end endpoints, had help from team to get everything working correctly.
 Added back in the code in the ci yaml file for the unit tests job, Rosheen popped in and was able to help us with that so it ran very smoothly.
 Pretty much done with project, just want to review some of the errors in the console on the front end, mainly on the deployed site.
+
+## 08/02/23
+
+Got the carousel working today, group effort. Testing out an About Us page:
+-ghi/src/AboutUs.js - images from slack -> imgur
+-app.jsx / route path
+-navbar -before seach, About Us

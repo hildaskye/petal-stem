@@ -22,10 +22,8 @@ import {
   EditPlant,
   EditPest,
 } from "./imports";
-import logo from "./logo.svg";
 import "./App.css";
-import Owldemo1 from "./owldemo1";
-import OwlDemo from "./owldemo";
+import AboutUsPage from "./AboutUs.js";
 
 function App(props) {
   const { token } = useToken();
@@ -79,6 +77,8 @@ function App(props) {
           />
           <Route path="/pest/:pest_id" element={<PestDetail />} />
           <Route path="/pest/list" element={<PestList />} />
+
+          <Route path="/about" element={<AboutUsPage />} />
         </Routes>
       </div>
       <script

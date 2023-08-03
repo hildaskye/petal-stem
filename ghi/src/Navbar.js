@@ -69,6 +69,13 @@ function Navbar({ user }) {
                     Dashboard
                   </NavLink>
                 </li>
+
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/about">
+                    About Us
+                  </NavLink>
+                </li>
+
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/search">
                     Search
