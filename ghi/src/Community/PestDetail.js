@@ -64,14 +64,13 @@ function PestDetail(props) {
 
     return (
         <div>
-            <h1>Pest Details</h1>
+            <h1 className="heading">Detail about this pest</h1>
             <table className="table table-striped">
             <thead>
                 <tr>
                 <th>Pest Name</th>
                 <th>Picture</th>
                 <th>Log</th>
-                <th>User</th>
                 </tr>
             </thead>
             <tbody>
@@ -79,10 +78,9 @@ function PestDetail(props) {
                     <td>{pest.name}</td>
                     <td>{pest.picture}</td>
                     <td>{pest.log}</td>
-                    <td>{pest.user_id}</td>
                     <td>
-                        <button className= "btn btn-warning" onClick={handleEdit}>Edit</button>
-                        <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
+                        <button className= "btn btn-outline-secondary" onClick={handleEdit}>Edit</button>
+                        <button className="btn btn-outline-danger" onClick={handleDelete} style={{ marginLeft: "10px" }}>Delete</button>
                     </td>
                 </tr>
             </tbody>

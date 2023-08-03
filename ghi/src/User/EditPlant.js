@@ -29,6 +29,7 @@ export default function PlantEdit() {
     data.species_id = parseInt(species);
     console.log("PUT data:", data)
 
+
     const gardenUrl = `${process.env.REACT_APP_API_HOST}/api/garden/${user_id}/plant/${plant_id}`;
     const fetchConfig = {
       method: "put",
@@ -76,7 +77,7 @@ export default function PlantEdit() {
   return (
     <div className="row">
       <div className="offset-3 col-6">
-        <h1>Edit plant!</h1>
+        <h1 className="heading">Edit plant!</h1>
         <form onSubmit={handleSubmit} id="add-plant-form">
           <div className="form-floating mb-3">
             <input
@@ -91,7 +92,7 @@ export default function PlantEdit() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="log">Log</label>
+            <label htmlFor="log">Description</label>
             <textarea
               onChange={handlePlantLogChange}
               value={log}
@@ -103,7 +104,7 @@ export default function PlantEdit() {
           </div>
           {/* Add a hidden input field to store the species_id */}
           <input type="hidden" name="species_id" value={species} />
-          <button className="btn btn-primary">Edit!</button>
+          <button className="btn button-update">Update!</button>
         </form>
       </div>
     </div>

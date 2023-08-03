@@ -29,46 +29,58 @@ function SearchList() {
     };
 
     return (
-        <>
-            <div className="row">
-                <div className="offset-3 col-6">
-                    <div className="shadow p-4 mt-4">
-                        <form onSubmit={handleSearchSubmit} id="create-search">
-                            <div className="form-floating mb-3">
-                                <input onChange={handleTermChange} placeholder="search" required type="text" className="form-control" value={term} />
-                            </div>
-                            <button className="btn btn-primary">Search!</button>
-                        </form>
-                    </div>
+      <>
+        <div>
+          <div className="col-md-4 offset-md-8">
+            <div className="shadow p-2 mt-4 d-flex">
+              <form
+                onSubmit={handleSearchSubmit}
+                id="create-search"
+                className="w-100"
+              >
+                <div className="input-group mb-3">
+                  <input
+                    onChange={handleTermChange}
+                    placeholder="Search"
+                    required
+                    type="text"
+                    className="form-control"
+                    value={term}
+                  />
+                  <div className="search-button">
+                    <button className="btn btn-success" type="submit">
+                      Search!
+                    </button>
+                  </div>
                 </div>
+              </form>
             </div>
-            <div>
-                <h1>Search Results</h1>
-                {console.log(results)}
-                {results.length > 0 ? (
-                    <table className="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Result</th>
-                                <th>Type</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {results.map((result, index) => {
-                                return (
-                                    <tr key={index}>
-                                        <td>{result.search_result}</td>
-                                        <td>{result.table}</td>
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
-                ) : (
-                   <p>No results found.</p>
-                )}
-            </div>
-        </>
+          </div>
+
+          <h1 className="search-heading">Search Results</h1>
+
+          {results.length > 0 ? (
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <th>Result</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                {results.map((result, index) => (
+                  <tr key={index}>
+                    <td>{result.search_result}</td>
+                    <td>{result.table}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <p>No results found.</p>
+          )}
+        </div>
+      </>
     );
 }
 

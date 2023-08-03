@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-import useToken from "../auth forms/newindex.tsx";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import useToken from "../auth forms/newindex.tsx";
 
 export default function Dashboard() {
   const [plants, setPlants] = useState([]);
@@ -52,47 +53,48 @@ export default function Dashboard() {
   };
 
 
-  return (
-    <>
-      <div>
-        <h1>Your garden</h1>
+return (
+  <>
+    <div>
+      <div className="dashboard-header">
+        <h1 className="heading">Your Garden</h1>
+        <Link to={`/garden/${user_id}/plant/add`}>
+          <button className="btn btn-outline-success">Add a plant!</button>
+        </Link>
+      </div>
+      <div className="card-container">
         {plants.length > 0 ? (
-          <table className="table table-striped">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Log</th>
-              </tr>
-            </thead>
-            <tbody>
-              {plants.map((personal_plant) => {
-                return (
-                  <tr key={personal_plant.id}>
-                    <td>{personal_plant.nickname}</td>
-                    <td>{personal_plant.log}</td>
-                    <td>
-                      <button
-                        className="btn btn-warning"
-                        onClick={() => handleEdit(personal_plant.id)}
-                      >
-                        Edit
-                      </button>
-                      <button
-                        className="btn btn-danger"
-                        onClick={() => handleDelete(personal_plant.id)}
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+          plants.map((personal_plant) => (
+            <div
+              className="card"
+              style={{ width: "18rem" }}
+              key={personal_plant.id}
+            >
+              {/* <img src={personal_plant.picture} className="card-img-top" alt="picture" /> */}
+              <div className="card-body">
+                <h5 className="card-title">{personal_plant.nickname}</h5>
+                <p className="card-text">{personal_plant.log}</p>
+                <button
+                  className="btn btn-outline-secondary"
+                  onClick={() => handleEdit(personal_plant.id)}
+                >
+                  Edit
+                </button>
+                <button
+                  className="btn btn-outline-danger"
+                  onClick={() => handleDelete(personal_plant.id)}
+                  style={{ marginLeft: "10px" }}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          ))
         ) : (
           <p>You have no plants!</p>
         )}
       </div>
-    </>
-  );
+    </div>
+  </>
+);
 }

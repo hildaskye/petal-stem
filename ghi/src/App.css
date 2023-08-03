@@ -12,3 +12,94 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.button-custom {
+  background-color: #37a040;
+  font-weight: bold;
+  border-radius: 7px;
+}
+
+.button-custom:hover {
+  text-decoration: underline;
+  background-color: #2d8835;
+}
+
+.button-update {
+  background-color: #ec37a9;
+  color: white;
+  font-weight: bold;
+  border-radius: 7px;
+}
+
+.button-update:hover {
+  background-color: #ff70ca;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-right: 70px;
+}
+
+.heading {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #ffffff;
+  background-color: #3b842b;
+  border-radius: 10px;
+  padding: 10px;
+  width: 60%
+}
+
+.logo {
+  width: 120px;
+  height: 70px;
+  background-image: url("https://drive.google.com/uc?id=1JCHI8NCmRf3GtY-1ZygZPafTFFep1wDj");
+  background-size: contain;
+  display: inline-block;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.navbar-custom {
+  background: linear-gradient(to right, #e50e7d, #e268bd);
+}
+
+.search-button {
+  margin-left: 10px;
+}
+
+.search-heading {
+  margin-top: 1px;
+  margin-bottom: 40px;
+}
+
+.select-plant {
+  width: 40%;
+}
+
+.select-species {
+  width: 30%;
+}
+
+.species-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-right: 5px;
+}

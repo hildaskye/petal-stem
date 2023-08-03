@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import useToken from "../auth forms/newindex.tsx";
 
-function GardenList() {
+function GardenList({ user_id }) {
   const [gardens, setGardens] = useState([]);
   const { token } = useToken();
 
@@ -9,12 +10,12 @@ function GardenList() {
     const getData = async () => {
       const gardenUrl = `${process.env.REACT_APP_API_HOST}/api/garden`;
       const fetchConfig = {
-            method: "get",
-            headers: {
-                'Content-Type': 'application/json',
-                 Authorization: `Bearer ${token}`,
-            },
-        };
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
       const response = await fetch(gardenUrl, fetchConfig);
       if (response.ok) {
         const data = await response.json();
@@ -36,29 +37,31 @@ function GardenList() {
 
   return (
     <div>
-      <h1>Community Page</h1>
+      <h1 className="heading">Community</h1>
       {Object.keys(groupByUploaderName).length > 0 ? (
-        Object.entries(groupByUploaderName).map(([uploaderName, userGardens]) => (
-          <div key={uploaderName}>
-            <h2>{uploaderName}'s Plants</h2>
-            <table className="table table-striped">
-              <thead>
-                <tr>
-                  <th>Plant Nickname</th>
-                  <th>Species Name</th>
-                </tr>
-              </thead>
-              <tbody>
-                {userGardens.map((garden) => (
-                  <tr key={garden.id}>
-                    <td>{garden.plant_nickname}</td>
-                    <td>{garden.species_name}</td>
+        Object.entries(groupByUploaderName).map(
+          ([uploaderName, userGardens]) => (
+            <div key={uploaderName}>
+              <h2>{uploaderName}'s Garden</h2>
+              <table className="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Plant Name</th>
+                    <th>Species</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        ))
+                </thead>
+                <tbody>
+                  {userGardens.map((garden) => (
+                    <tr key={garden.id}>
+                      <td>{garden.plant_nickname}</td>
+                      <td>{garden.species_name}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )
+        )
       ) : (
         <p>No results found.</p>
       )}

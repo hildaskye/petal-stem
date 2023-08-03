@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useToken from "../auth forms/newindex.tsx";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function SpeciesList() {
   const [species, setSpecies] = useState([]);
@@ -17,7 +18,6 @@ function SpeciesList() {
           Authorization: `Bearer ${token}`,
         },
       };
-      console.log("TOKEN", token);
       const response = await fetch(url, fetchConfig);
       if (response.ok) {
         const data = await response.json();
@@ -50,12 +50,17 @@ function SpeciesList() {
 
   return (
     <div>
-      <h1>Species</h1>
+      <div className="species-header">
+        <h1 className="heading">Species</h1>
+        <Link to={`/species/add`}>
+          <button className="btn btn-outline-success">Add a new plant species!</button>
+        </Link>
+      </div>
       <table className="table table-striped">
         <thead>
           <tr>
             <th>Name</th>
-            <th>Action</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -65,14 +70,15 @@ function SpeciesList() {
                 <td>{specie.name}</td>
                 <td>
                   <button
-                    className="btn btn-warning"
+                    className="btn btn-outline-secondary"
                     onClick={() => handleEdit(specie.id)}
                   >
                     Edit
                   </button>
                   <button
-                    className="btn btn-danger"
+                    className="btn btn-outline-danger"
                     onClick={() => handleDelete(specie.id)}
+                    style={{ marginLeft: "10px" }}
                   >
                     Delete
                   </button>

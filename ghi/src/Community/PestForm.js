@@ -45,7 +45,7 @@ export default function PestForm({ user }) {
   return (
     <div className="row">
       <div className="offset-3 col-6">
-        <h1>Add a new type of pest!</h1>
+        <h1 className="heading">Add a new type of pest!</h1>
         <form onSubmit={handleSubmit} id="add-pest-form">
           <div className="form-floating mb-3">
             <input
@@ -82,7 +82,7 @@ export default function PestForm({ user }) {
               className="form-control"
             />
           </div>
-          <button className="btn btn-primary">Create!</button>
+          <button className="btn button-update">Create!</button>
         </form>
       </div>
     </div>

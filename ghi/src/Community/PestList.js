@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useToken from "../auth forms/newindex.tsx";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function PestList() {
   const [pest, setPest] = useState([]);
@@ -49,30 +50,35 @@ function PestList() {
 
   return (
     <div>
-      <h1>Pest</h1>
+      <div className="species-header">
+        <h1 className="heading">Pest</h1>
+        <Link to={`/pest/add`}>
+          <button className="btn btn-outline-success">Add a new pest!</button>
+        </Link>
+      </div>
       <table className="table table-striped">
         <thead>
           <tr>
             <th>Name</th>
-            <th>Action</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          {console.log(pest)}
           {pest.map((pestunit) => {
             return (
               <tr key={pestunit.id}>
                 <td>{pestunit.name}</td>
-                <td>
+                <td className="text-end">
                   <button
-                    className="btn btn-warning"
+                    className="btn btn-outline-secondary me-2"
                     onClick={() => handleEdit(pestunit.id)}
                   >
                     Edit
                   </button>
                   <button
-                    className="btn btn-danger"
+                    className="btn btn-outline-danger"
                     onClick={() => handleDelete(pestunit.id)}
+                    style={{ marginLeft: "10px" }}
                   >
                     Delete
                   </button>

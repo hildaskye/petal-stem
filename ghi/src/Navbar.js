@@ -6,9 +6,9 @@ function Navbar({ user }) {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+      <nav className="navbar navbar-expand-lg navbar-dark navbar-custom">
         <NavLink className="navbar-brand" to="/">
-          Petal & Stem
+          <div className="logo"></div>
         </NavLink>
         <button
           className="navbar-toggler"
@@ -23,49 +23,47 @@ function Navbar({ user }) {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
+          <ul className="navbar-nav ml-auto">
+            {/* <li className="nav-item">
               <NavLink className="nav-link" to="/">
                 Home
               </NavLink>
-            </li>
+            </li> */}
             {token ? (
               <>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/logout">
-                    Logout
-                  </NavLink>
-                </li>
-                <li className="nav-item">
                   <NavLink className="nav-link" to="/gardens">
-                    Community Page
+                    Community
                   </NavLink>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <NavLink className="nav-link" to="/pest/add">
                     Add a pest
                   </NavLink>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/pest/list">
-                    Pest List
+                    Pests
                   </NavLink>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <NavLink className="nav-link" to="/species/add">
                     Add a plant species
                   </NavLink>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/species">
-                    Species List
+                    Species
                   </NavLink>
                 </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" to={`/garden/${user.id}/plant/add`}>
+                {/* <li className="nav-item">
+                  <NavLink
+                    className="nav-link"
+                    to={`/garden/${user.id}/plant/add`}
+                  >
                     Add a Plant
                   </NavLink>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <NavLink className="nav-link" to={`/garden/${user.id}`}>
                     Dashboard
@@ -74,6 +72,11 @@ function Navbar({ user }) {
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/search">
                     Search
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link button-custom" to="/logout">
+                    Logout
                   </NavLink>
                 </li>
               </>

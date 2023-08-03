@@ -77,7 +77,7 @@ export default function PestEdit({ user }) {
   return (
     <div className="row">
       <div className="offset-3 col-6">
-        <h1>Edit pest!</h1>
+        <h1 className="heading">Edit pest!</h1>
         <form onSubmit={handleSubmit} id="add-plant-form">
           <div className="form-floating mb-3">
             <input
@@ -103,7 +103,7 @@ export default function PestEdit({ user }) {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="log">Log</label>
+            <label htmlFor="log">Description</label>
             <textarea
               onChange={handleLogChange}
               value={log}
@@ -113,7 +113,7 @@ export default function PestEdit({ user }) {
               className="form-control"
             ></textarea>
           </div>
-          <button className="btn btn-primary">Edit!</button>
+          <button className="btn button-update">Update</button>
         </form>
       </div>
     </div>

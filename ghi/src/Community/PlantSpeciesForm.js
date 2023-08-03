@@ -56,7 +56,7 @@ export default function PlantSpeciesForm({ user }) {
   return (
     <div className="row">
       <div className="offset-3 col-6">
-        <h1>Add a new plant species!</h1>
+        <h1 className="heading">Add a new plant species!</h1>
         <form onSubmit={handleSubmit} id="add-plant-form">
           <div className="form-floating mb-3">
             <input
@@ -76,7 +76,7 @@ export default function PlantSpeciesForm({ user }) {
               onChange={handleLocationChange}
               name="location"
               id="location"
-              className="form-select form-select-sm"
+              className="select-species"
               value={location_type}
               aria-label=".form-select-sm example"
             >
@@ -92,7 +92,7 @@ export default function PlantSpeciesForm({ user }) {
               onChange={handleLifecycleChange}
               name="lifecycle"
               id="lifecycle"
-              className="form-select form-select-sm"
+              className="select-species"
               value={cycle_type}
               aria-label=".form-select-sm example"
             >
@@ -116,7 +116,7 @@ export default function PlantSpeciesForm({ user }) {
             />
           </div>
 
-          <button className="btn btn-primary">Create!</button>
+          <button className="btn button-update">Create!</button>
         </form>
       </div>
     </div>

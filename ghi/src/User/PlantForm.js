@@ -66,7 +66,7 @@ export default function PlantForm() {
   return (
     <div className="row">
       <div className="offset-3 col-6">
-        <h1>Add a plant!</h1>
+        <h1 className="heading">Add a plant!</h1>
         <form onSubmit={handleSubmit} id="add-plant-form">
           <div className="form-select form-select-sm">
             <select
@@ -74,7 +74,7 @@ export default function PlantForm() {
               onChange={handleSpeciesChange}
               name="species_id"
               id="species_id"
-              className="form-select"
+              className="select-plant"
               value={species_id}
             >
               <option value="">Type of plant</option>
@@ -90,7 +90,7 @@ export default function PlantForm() {
           <div>
             <Link to={`/species/add`}> Species not listed? Click here!</Link>
           </div>
-          <div className="form-floating mb-3">
+          <div className="form-floating mb-2 mt-2">
             <input
               onChange={handlePlantNicknameChange}
               value={nickname}
@@ -114,7 +114,7 @@ export default function PlantForm() {
             ></textarea>
           </div>
 
-          <button className="btn btn-primary">Create!</button>
+          <button className="btn button-update">Create!</button>
         </form>
       </div>
     </div>
