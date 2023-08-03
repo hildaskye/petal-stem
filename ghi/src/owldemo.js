@@ -11,22 +11,22 @@ export class OwlDemo extends Component {
         <div class="container-fluid">
           <OwlCarousel items={3} margin={8} autoplay={true}>
             <div>
-              <img className="img" src={"assets/img/img1.png"} />
+              <img className="img" src="https://i.imgur.com/vcvHhNm.png" />
             </div>
             <div>
-              <img className="img" src={"assets/img/img2.png"} />
+              <img className="img" src="https://i.imgur.com/nfmqrYg.png" />
             </div>
             <div>
-              <img className="img" src={"assets/img/img4.png"} />
+              <img className="img" src="https://i.imgur.com/HtxCd7i.png" />
             </div>
             <div>
-              <img className="img" src={"assets/img/img3.png"} />
+              <img className="img" src="https://i.imgur.com/CFGzSvf.png" />
             </div>
             <div>
-              <img className="img" src={"assets/img/img5.png"} />
+              <img className="img" src="https://i.imgur.com/WWfR7bW.png" />
             </div>
             <div>
-              <img className="img" src={"assets/img/img6.png"} />
+              <img className="img" src="https://i.imgur.com/SPgAujN.png" />
             </div>
           </OwlCarousel>
         </div>
