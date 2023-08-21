@@ -2,7 +2,7 @@
 
 - Melinda Tran
 - Cindy Lam
-- Dylan Winn
+- Hilda Skye
 - David Sanchez
 - Alan Y.C. Cheng
 
